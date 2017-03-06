@@ -15,8 +15,9 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
-target/*
+target/
 .idea/*
+
 
 ## Plugin-specific files:
 

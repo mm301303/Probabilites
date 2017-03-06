@@ -15,25 +15,21 @@ public interface Displayable {
     }
 
     static void display(Law law, int x_egal_i){
+        PrintLine("*****");
         PrintTitle(law.getName());
-        PrintLine(" p = "+String.format("%.3f",law.getPsuccess())+"\t non(p) = "+String.format("%.3f",new Double(1-law.getPsuccess())));
+        PrintLine(law.getParameters());
         PrintLine("VARIANCE = "+String.format("%.3f",law.getVariance()));
         PrintLine("ESPERANCE = "+String.format("%.3f",law.getEsperance()));
-        PrintLine("P(X="+x_egal_i+") = "+String.format("%.3f",law.getPrecomputedValForX(x_egal_i)));
-        PrintLine("*****");
-        details(law);
+        PrintLine("P(X="+x_egal_i+") = "+String.format("%.3f",law.compute(x_egal_i)));
+        details(law, x_egal_i);
         PrintLine("*****");
     }
-    static void details(Law law){
-        PrintLine("Loi complete : "+law.compute());
+    static void details(Law law, int until){
+        PrintLine("-----------------------------------------");
+        for(int i=0; i<until; i++)
+            PrintLine("* P(X="+i+") = \t"+law.compute(i)+" ");
+        PrintLine("-----------------------------------------");
     }
 
-    /**
-     * should be used wit this
-     * @param law
-     */
-    static void displayComputation(Law law){
-        law.compute();
-    }
     String getName();
 }

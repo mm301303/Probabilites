@@ -20,6 +20,12 @@ public class GeometricLaw implements Law, Displayable{
 
     }
 
+    @Override
+    public double compute(int x_egal_i) {
+        if(ok) return memoisation.get(x_egal_i);
+        else return -1;
+    }
+
     public double getEsperance(){
         if(!ok) return -1;
         return 1/proba_reussite;
@@ -67,17 +73,20 @@ public class GeometricLaw implements Law, Displayable{
         return -1;
     }
 
-    public double getPrecomputedValForX(int x_egal_i) {
-        if(!ok) return -1;
-        return memoisation.get(x_egal_i);
-    }
-
     @Override
     public String getName() {
         return "Geometric Law";
     }
 
     @Override
+    public String getParameters() {
+        return "pSuccess = "+proba_reussite ;
+    }
+
+    /**
+     * getter on pSuccess
+     * @return
+     */
     public Double getPsuccess() {
         return proba_reussite;
     }
