@@ -9,10 +9,10 @@ public class GeometricLawTest {
     @Test
     public void exoTest() throws Exception {
         double psucess = 0.5;
-        int nb = 3;
+        int nb = 30;
 
         GeometricLaw geoLaw = new GeometricLaw(psucess, nb);
-        geoLaw.display(psucess, nb, 2);
+        geoLaw.display(psucess, nb, 4);
     }
 
 }

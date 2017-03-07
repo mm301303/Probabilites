@@ -27,7 +27,7 @@ public interface Displayable {
             if (law.getEsperance() != -1)
                 PrintLine("ESPERANCE = " + String.format("%.3f", law.getEsperance()));
 
-            PrintLine("P(X=" + x_egal_i + ") = " + String.format("%.3f", law.compute(x_egal_i)));
+            PrintLine("P(X=" + x_egal_i + ") = " + String.format("%.3f", law.getProbabiliteDeX(x_egal_i)));
             details(law, x_egal_i);
         if(law instanceof ContinuousLaw) {
             System.out.println("displayContinuousLaw advised");
@@ -46,7 +46,7 @@ public interface Displayable {
     static void details(Law law, int until){
         PrintLine("-----------------------------------------");
         for(int i=0; i<until; i++)
-            PrintLine("* P(X="+i+") = \t"+law.compute(i)+" ");
+            PrintLine("* P(X="+i+") = \t"+law.getProbabiliteDeX(i)+" ");
         PrintLine("-----------------------------------------");
     }
 
