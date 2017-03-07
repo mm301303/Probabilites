@@ -8,6 +8,5 @@ public interface Law {
      double getEsperance();
      double getVariance();
      String getName();
-
      String getParameters();
 }
