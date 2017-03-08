@@ -33,11 +33,17 @@ public class UniformLawTest {
         //Loi uniforme : E(U) = a+b/2 et V(U)=(b-a)^2 /12
         //on veut a+b=8 et (a+b)^2/12 = 4
         // -> (b-a)^2 = 4*12 = 48 = 4sqrt(3)
-        //d'ou la loi uniforme sur [4-4squrt(3);4+4squrt(3)]
+        //d'ou la loi uniforme sur [4-2squrt(3);4+2squrt(3)]
         //correction :
-        UniformLaw ul = new UniformLaw(4.0-(4.0 * Math.sqrt(3.0)),4.+(4.*Math.sqrt(3.)));
-        assertEquals(4., ul.getVariance(), 0.01);
+        double et =  Math.sqrt(48.0);
+        double inf = 4.0 - et/2;
+        double supp = 4.0 + et/2;
+        UniformLaw ul = new UniformLaw(inf,supp);
+        System.out.println("ul.getEsperance() = " + ul.getEsperance());
         assertEquals(4., ul.getEsperance(), 0.01);
+        System.out.println("ul.getVariance() = " + ul.getVariance());
+        assertEquals(4., ul.getVariance(), 0.01);
+
 
     }
 }

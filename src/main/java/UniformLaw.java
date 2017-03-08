@@ -10,10 +10,10 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     private UnivariateFunction DENSITY;
 
     private static final int MAX_EVAL=10;
-    SimpsonIntegrator baseAbstractUnivariateIntegrator;
+    //SimpsonIntegrator baseAbstractUnivariateIntegrator;
 
     public UniformLaw(double inf, double supp) {
-        baseAbstractUnivariateIntegrator = new SimpsonIntegrator();
+        //baseAbstractUnivariateIntegrator = new SimpsonIntegrator();
         this.inf = inf;
         this.supp = supp;
         DENSITY = new UnivariateFunction() {
@@ -21,15 +21,15 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
             public double value(double x) {
                 return (x-inf)/(supp-inf);
             }
-
         };
     }
 
     @Override
     public double density(double a, double b) {
-        if(a==b) return 0.;
+
+        if(a>=b) return 0.;
         else
-            return DENSITY.value(b) - DENSITY.value(a);
+            return Math.abs(DENSITY.value(b) - DENSITY.value(a));
     }
 
     @Override
@@ -40,8 +40,10 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double getVariance() {
+        double base = 12;
+        double num = Math.pow(supp-inf, 2);
 
-        return (supp-inf)*(supp-inf)/(supp-inf);
+        return num/base;
     }
 
     @Override
@@ -58,6 +60,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double getProbabiliteDeX(int x_egal_i) {
+
         return 0;//property
     }
 }
