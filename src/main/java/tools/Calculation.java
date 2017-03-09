@@ -15,7 +15,7 @@ public class Calculation {
 
 
     public static double kParmisN(int k, int n) throws CalculationException {
-        if(n==k) return 1;
+        if(n<=k) return 1;
         if(k==0) return 1;
         if(k==1) return n;
         if(k>=2 && n>k) {

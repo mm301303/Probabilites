@@ -7,5 +7,6 @@ Question2DS1Test
 exo1TD1
 exo2TD1
 
+TD1exo30
 TD1exo26
 TD1exo21
