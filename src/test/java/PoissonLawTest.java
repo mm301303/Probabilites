@@ -11,23 +11,7 @@ public class PoissonLawTest {
     double lambda = 3;
     @Before
     public void init(){
-
         this.poisson = new PoissonLaw(lambda);
-    }
-
-    @Test
-    public void compute() throws Exception {
-        Displayable.display(poisson, 15);
-    }
-
-    @Test
-    public void getEsperance() throws Exception {
-        assertEquals(lambda, poisson.getEsperance(), 0.01);
-    }
-
-    @Test
-    public void getVariance() throws Exception {
-        assertEquals(lambda, poisson.getVariance(), 0.01);
     }
 
     @Test

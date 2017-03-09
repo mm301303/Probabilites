@@ -1,3 +1,4 @@
+import Exceptions.LawException;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,11 +15,17 @@ public class GeometricLawTest {
         int nb = 100;
         int i=0;
 
-        GeometricLaw geoLaw = new GeometricLaw(psucess, nb);
-        ArrayList<Double> geoResults = geoLaw.compute();
+        GeometricLaw geoLaw = null;
+        try {
+            geoLaw = new GeometricLaw(psucess, nb);
+        } catch (LawException e) {
+            System.out.println(e.getMessage());
+            System.exit(-1);
+        }
+        ArrayList<Double> geoResults = new ArrayList<>();
         double p = 0;
         while(p<0.6){
-            p+=geoResults.get(i);
+            p += geoLaw.compute(i);
             i++;
         }
         System.out.println("Res = " + (int)(i-1));

@@ -16,13 +16,9 @@ public class UniformLawTest {
         UniformLaw uniformLaw = new UniformLaw(borneInfU, borneSuppU);
 
         System.out.println("Attendre moins de 5 min :");
-        double P1 = uniformLaw.density(10,15) + uniformLaw.density(25,30);//le bus passe deux fois
-        System.out.println("P1 = " + P1);
-        assertEquals(1./3., P1, 0.01);
-        System.out.println("Attendre moins de 10 min :");
-        double P2 = uniformLaw.density(0,5) + uniformLaw.density(15, 20);//le bus passe deux fois
-        System.out.println("P2 = " + P2);
-        assertEquals(1./3., P2, 0.01);
+        double res5 = uniformLaw.density(10,15) + uniformLaw.density(25,30);
+        assertEquals(1./3., res5);
+
     }
 
     @Test
