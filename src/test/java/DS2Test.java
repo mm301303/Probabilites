@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by max on 07/03/17.
+ * Créé avec les rares archives du ds précédent
  */
 public class DS2Test {
     double delta =0.001;
