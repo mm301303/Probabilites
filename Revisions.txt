@@ -1,8 +1,11 @@
-DS:
+DS1:
 Exo 1 :
 E(X+Y) = E(X) + E(Y)
 
 Question2DS1Test
+DS2 archive :
+question10
+question12
 
 
 Ctrl+maj+f TD1

@@ -19,11 +19,18 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
         this.inf = inf;
         this.supp = supp;
 
+        DENSITY = new UnivariateFunction() {
+            @Override
+            public double value(double x) {
+                return (x-inf)/(supp-inf);
+            }
+
+        };
+
     }
 
     @Override
     public double density(double a, double b) {
-
         if(a>=b) return 0.;
         else
             return Math.abs(DENSITY.value(b) - DENSITY.value(a));

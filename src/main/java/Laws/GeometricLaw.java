@@ -6,16 +6,11 @@ import tools.Displayable;
 
 import java.util.ArrayList;
 
-/**
- * tools.Displayable Laws.functions.Law for geometricLaw
- */
 public class GeometricLaw implements Law, Displayable {
 
     private double proba_reussite;
-    private boolean ok=false;//enable calculation
-    private ArrayList<Double> memoisation;
 
-    public GeometricLaw(double probabilite, int i) throws LawException {
+    public GeometricLaw(double probabilite) throws LawException {
         proba_reussite = probabilite;
         if(!(probabilite<1||probabilite>0)){
             throw new LawException(this.getClass(), "probabilite"+probabilite);
@@ -29,13 +24,11 @@ public class GeometricLaw implements Law, Displayable {
     }
 
     public double getEsperance(){
-        if(!ok) return -1;
         return 1/proba_reussite;
     }
 
     @Override
     public double getVariance() {
-        if(!ok) return -1;
         return (1-proba_reussite)/(proba_reussite*proba_reussite);
     }
 

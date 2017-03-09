@@ -10,6 +10,7 @@ public class UniformLawTest {
 
     @Test
     public void exo1TD1(){//corrected
+        System.out.println(this.getClass().getSimpleName()+" exo1TD1");
         double borneInfU = 0;
         double borneSuppU = 30;
 
@@ -32,7 +33,7 @@ public class UniformLawTest {
 
     @Test
     public void exo2TD1() {
-
+        System.out.println("exo2TD1");
         double et =  Math.sqrt(48.0);
         double inf = 4.0 - et/2;
         double supp = 4.0 + et/2;

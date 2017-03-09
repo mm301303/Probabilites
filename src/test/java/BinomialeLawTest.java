@@ -14,6 +14,7 @@ public class BinomialeLawTest {
     double delta = 0.01;
     @Test
     public void TD1exo21() throws Exception, LawException, CalculationException {
+        System.out.println("\nTD1exo21");
         // P qu’il ait au moins un garçon ?
         Law law = new BinomialeLaw(0.5, 2);
         System.out.println("Le voisin a deux enfants\nP qu’il ait au moins un garçon ?");
@@ -30,6 +31,7 @@ public class BinomialeLawTest {
 
     @Test
     public void TD1exo26() throws Exception, LawException, CalculationException {
+        System.out.println("\nTD1exo26");
         System.out.println("medicament qui provoque une allergie a 1 personne sur 100");
         System.out.println("probabilité d'au moins une allergie sur 70 patients ?");
         BinomialeLaw law = new BinomialeLaw(0.01, 70);
@@ -44,7 +46,8 @@ public class BinomialeLawTest {
 
     @Test
     public void TD1exo30() throws Exception, LawException, CalculationException {
-        //TODO implement a method for P(X>=i) resp P(X<=i)
+        System.out.println("\nTD1exo30");
+
         int bonNombreDeTirage = 0;
         System.out.println("Pour construire un robot, un étudiant de Polytech a besoin de 12 circuits intégrés identiques R2D2.\n Chaque circuit intégré a 5% de chance d’être défectueux.\n"
                 +" Combien (au minimum) de circuits cet étudiant doit-il acheter pour être certain (à 90%) d’avoir au moins 12 circuits intégrés sans défauts ?");
