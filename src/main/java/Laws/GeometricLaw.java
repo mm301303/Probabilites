@@ -20,7 +20,7 @@ public class GeometricLaw implements Law, Displayable {
     @Override
     public double getProbabiliteDeX(int x_egal_i) {
         display();//for debug
-        return Math.pow(1.-proba_reussite, x_egal_i-1)*proba_reussite;
+        return Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite;
     }
 
     public double getEsperance(){

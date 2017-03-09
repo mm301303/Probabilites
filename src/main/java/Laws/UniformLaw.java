@@ -2,7 +2,7 @@ package Laws;
 
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
-import org.apache.commons.math3.analysis.UnivariateFunction;//TODO fix this
+import org.apache.commons.math3.analysis.UnivariateFunction;
 import tools.Displayable;
 
 
