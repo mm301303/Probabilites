@@ -69,3 +69,9 @@ buildNumber.properties
 
 # End of https://www.gitignore.io/api/maven,intellij
 
+
+\.idea/
+
+*.iml
+
+commons-math3-3\.6\.1/
