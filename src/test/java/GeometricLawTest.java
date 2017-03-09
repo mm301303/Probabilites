@@ -1,4 +1,5 @@
 import Exceptions.LawException;
+import Laws.GeometricLaw;
 import org.junit.Test;
 
 import java.util.ArrayList;

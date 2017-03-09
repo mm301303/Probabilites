@@ -1,6 +1,6 @@
-import Exceptions.CalculationException;
+package Laws.functions;
 
-import java.util.ArrayList;
+import Exceptions.CalculationException;
 
 /**
  * Created by maxime on 02/03/17.

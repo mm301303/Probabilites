@@ -1,11 +1,15 @@
+package Laws;
+
 import Exceptions.LawException;
+import Laws.functions.Law;
+import tools.Displayable;
 
 import java.util.ArrayList;
 
 /**
- * Displayable Law for geometricLaw
+ * tools.Displayable Laws.functions.Law for geometricLaw
  */
-public class GeometricLaw implements Law, Displayable{
+public class GeometricLaw implements Law, Displayable {
 
     private double proba_reussite;
     private boolean ok=false;//enable calculation

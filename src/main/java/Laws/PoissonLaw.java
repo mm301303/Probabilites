@@ -1,11 +1,13 @@
-import tools.Calculation;
+package Laws;
 
-import java.util.ArrayList;
+import Laws.functions.Law;
+import tools.Calculation;
+import tools.Displayable;
 
 /**
  * c'est l'approximation d'une loi binomiale pour n grand et p petit
  */
-public class PoissonLaw implements Law, Displayable{
+public class PoissonLaw implements Law, Displayable {
 
     private double lambda;
 
@@ -41,7 +43,7 @@ public class PoissonLaw implements Law, Displayable{
 
     @Override
     public String getName() {
-        return "Poisson Law";
+        return "Poisson Laws.functions.Law";
     }
 
     @Override

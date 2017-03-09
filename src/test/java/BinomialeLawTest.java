@@ -1,5 +1,7 @@
 import Exceptions.CalculationException;
 import Exceptions.LawException;
+import Laws.BinomialeLaw;
+import Laws.functions.Law;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

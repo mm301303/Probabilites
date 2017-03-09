@@ -1,7 +1,9 @@
+package Laws;
+
+import Laws.functions.ContinuousLaw;
+import Laws.functions.Law;
 import org.apache.commons.math3.analysis.UnivariateFunction;
-import org.apache.commons.math3.analysis.integration.BaseAbstractUnivariateIntegrator;
-import org.apache.commons.math3.analysis.integration.SimpsonIntegrator;
-import org.apache.commons.math3.analysis.integration.UnivariateIntegrator;
+import tools.Displayable;
 
 
 public class UniformLaw implements Law, ContinuousLaw, Displayable {
@@ -16,12 +18,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
         //baseAbstractUnivariateIntegrator = new SimpsonIntegrator();
         this.inf = inf;
         this.supp = supp;
-        DENSITY = new UnivariateFunction() {
-            @Override
-            public double value(double x) {
-                return (x-inf)/(supp-inf);
-            }
-        };
+
     }
 
     @Override
@@ -49,7 +46,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     @Override
     public String getName() {
 
-        return "Uniform Law ";
+        return "Uniform Laws.functions.Law ";
     }
 
     @Override

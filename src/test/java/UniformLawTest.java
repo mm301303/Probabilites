@@ -1,4 +1,4 @@
-import org.apache.commons.math3.analysis.UnivariateFunction;
+import Laws.UniformLaw;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

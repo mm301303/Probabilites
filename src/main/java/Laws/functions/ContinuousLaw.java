@@ -1,3 +1,5 @@
+package Laws.functions;
+
 /**
  * Created by maxime on 07/03/17.
  */

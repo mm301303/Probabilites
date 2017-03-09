@@ -1,3 +1,5 @@
+import Laws.PoissonLaw;
+import Laws.functions.Law;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +18,7 @@ public class PoissonLawTest {
 
     @Test
     public void getName() throws Exception {
-        assertEquals("Poisson Law", poisson.getName());
+        assertEquals("Poisson Laws.functions.Law", poisson.getName());
     }
 
 }

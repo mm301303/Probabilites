@@ -1,8 +1,10 @@
+package Laws;
+
 import Exceptions.CalculationException;
 import Exceptions.LawException;
+import Laws.functions.Law;
 import tools.Calculation;
-
-import java.lang.reflect.Parameter;
+import tools.Displayable;
 
 /**
  * Created by maxime on 09/03/17.
@@ -39,7 +41,7 @@ public class BinomialeLaw implements Law, Displayable {
 
     @Override
     public String display() {
-        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
+        return Displayable.title_prefix+getName()+ Displayable.closure+"\n"+getParameters();
     }
 
     @Override
