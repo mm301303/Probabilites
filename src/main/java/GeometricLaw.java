@@ -21,7 +21,7 @@ public class GeometricLaw implements Law, Displayable{
     }
 
     @Override
-    public double compute(int x_egal_i) {
+    public double getProbabiliteDeX(int x_egal_i) {
         if(ok) return memoisation.get(x_egal_i);
         else return -1;
     }
@@ -82,6 +82,8 @@ public class GeometricLaw implements Law, Displayable{
     public String getParameters() {
         return "pSuccess = "+proba_reussite ;
     }
+
+
 
     /**
      * getter on pSuccess

@@ -11,7 +11,7 @@ public class PoissonLaw implements Law, Displayable{
         this.lambda = lambda;
     }
 
-    public double compute(int x_egal_i){
+    public double getProbabiliteDeX(int x_egal_i){
         double coef = Math.exp(-lambda);
         int denom = 0;
         try {
@@ -62,5 +62,6 @@ public class PoissonLaw implements Law, Displayable{
     public String getParameters() {
         return "lambda = " + lambda;
     }
+
 
 }
