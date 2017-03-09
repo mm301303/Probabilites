@@ -1,3 +1,5 @@
+import Exceptions.CalculationException;
+
 import java.util.ArrayList;
 
 /**
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 public interface Law {
      String getName();
      String getParameters();
-     double getProbabiliteDeX(int x_egal_i);
+     double getProbabiliteDeX(int x_egal_i) throws CalculationException;
      double getEsperance();
      double getVariance();
 }

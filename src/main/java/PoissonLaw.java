@@ -1,3 +1,5 @@
+import tools.Calculation;
+
 import java.util.ArrayList;
 
 /**
@@ -15,8 +17,8 @@ public class PoissonLaw implements Law, Displayable{
         double coef = Math.exp(-lambda);
         int denom = 0;
         try {
-            denom = factorielle(x_egal_i);
-        } catch (Exception e) {
+            denom = (int)Calculation.factorielle(x_egal_i);
+        } catch (Throwable e) {
             System.out.println(e.getMessage());
             System.out.printf("exiting -");
             System.exit(-1);
@@ -24,22 +26,6 @@ public class PoissonLaw implements Law, Displayable{
         double numerateur = Math.pow(lambda, x_egal_i);
         double proba = coef*numerateur/denom;
         return proba;
-    }
-
-    /**
-     * maybe existing somewhere else
-     * @param n
-     * @return
-     */
-    private int factorielle(int n) throws Exception{
-        if(n<0) throw new Exception(this.getClass().getSimpleName()+" error: given arg is negative");//may cause error but at list result will be negative
-        if(n>=1){
-            int denominateur = 1;
-            for(int i = 1; i< n; i++){
-                denominateur*=i;
-            }
-            return denominateur;
-        }else return 1;//fact(0) = 1
     }
 
     @Override
@@ -56,6 +42,11 @@ public class PoissonLaw implements Law, Displayable{
     @Override
     public String getName() {
         return "Poisson Law";
+    }
+
+    @Override
+    public String display() {
+        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }
 
     @Override

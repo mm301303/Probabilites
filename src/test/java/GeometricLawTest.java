@@ -3,8 +3,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by maxime on 02/03/17.
  */
@@ -25,7 +23,7 @@ public class GeometricLawTest {
         ArrayList<Double> geoResults = new ArrayList<>();
         double p = 0;
         while(p<0.6){
-            p += geoLaw.compute(i);
+            p += geoLaw.getProbabiliteDeX(i);
             i++;
         }
         System.out.println("Res = " + (int)(i-1));

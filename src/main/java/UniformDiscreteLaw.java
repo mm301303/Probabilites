@@ -16,14 +16,15 @@ public class UniformDiscreteLaw implements Law, Displayable {
 
     }
 
-    @Override
     public double density(double a, double b) {
         if(a==b) return 0.;
-
+        return 0;
     }
 
     @Override
-    public double compute(int x_egal_i) {
+    public double getProbabiliteDeX(int x_egal_i) {
+
+        display();//for debug
         return 1/(supp-inf+1);//property
     }
 
@@ -43,7 +44,12 @@ public class UniformDiscreteLaw implements Law, Displayable {
     }
 
     @Override
+    public String display() {
+        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
+    }
+
+    @Override
     public String getParameters() {
-        return f.toString();
+        return this.getClass().getSimpleName();
     }
 }

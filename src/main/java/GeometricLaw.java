@@ -19,7 +19,8 @@ public class GeometricLaw implements Law, Displayable{
     }
 
     @Override
-    public double compute(int x_egal_i) {
+    public double getProbabiliteDeX(int x_egal_i) {
+        display();//for debug
         return Math.pow(1.-proba_reussite, x_egal_i-1)*proba_reussite;
     }
 
@@ -37,6 +38,11 @@ public class GeometricLaw implements Law, Displayable{
     @Override
     public String getName() {
         return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public String display() {
+        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }
 
     @Override

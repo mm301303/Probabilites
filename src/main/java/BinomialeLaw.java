@@ -1,3 +1,4 @@
+import Exceptions.CalculationException;
 import Exceptions.LawException;
 import tools.Calculation;
 
@@ -16,8 +17,9 @@ public class BinomialeLaw implements Law, Displayable {
     }
 
     @Override
-    public double compute(int x_egal_i) {
-        return Calculation.kParmisN(x_egal_i, this.n)*Math.pow(p,x_egal_i)*Math.pow(1.0-p, n-x_egal_i);
+    public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
+        //System.out.println(display());//for debug
+        return Calculation.kParmisN(x_egal_i, n)* Math.pow(p,x_egal_i) * Math.pow(1.0-p , n-x_egal_i);
     }
 
     @Override
@@ -33,6 +35,11 @@ public class BinomialeLaw implements Law, Displayable {
     @Override
     public String getName() {
         return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public String display() {
+        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }
 
     @Override

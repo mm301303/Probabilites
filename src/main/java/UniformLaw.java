@@ -49,7 +49,14 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     @Override
     public String getName() {
 
-        return " Uniform Law ";
+        return "Uniform Law ";
+    }
+
+    @Override
+    public String display() {
+
+        display();//for debug
+        return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }
 
     @Override
