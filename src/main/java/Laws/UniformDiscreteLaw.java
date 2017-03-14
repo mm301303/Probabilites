@@ -25,7 +25,7 @@ public class UniformDiscreteLaw implements Law, Displayable {
     }
 
     @Override
-    public double getProbabiliteDeX(int x_egal_i) {
+    public double getProbabiliteDeX(double x_egal_i) {
 
         display();//for debug
         return 1/(supp-inf+1);//property

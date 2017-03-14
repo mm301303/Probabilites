@@ -4,8 +4,6 @@ import Exceptions.LawException;
 import Laws.functions.Law;
 import tools.Displayable;
 
-import java.util.ArrayList;
-
 public class GeometricLaw implements Law, Displayable {
 
     private double proba_reussite;
@@ -18,7 +16,7 @@ public class GeometricLaw implements Law, Displayable {
     }
 
     @Override
-    public double getProbabiliteDeX(int x_egal_i) {
+    public double getProbabiliteDeX(double x_egal_i) {
         display();//for debug
         return Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite;
     }

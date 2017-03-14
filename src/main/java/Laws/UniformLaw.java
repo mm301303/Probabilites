@@ -70,7 +70,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     }
 
     @Override
-    public double getProbabiliteDeX(int x_egal_i) {
+    public double getProbabiliteDeX(double x_egal_i) {
 
         return 0;//property
     }
