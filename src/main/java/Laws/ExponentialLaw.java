@@ -33,7 +33,7 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double getProbabiliteDeX(double x_egal_i) throws CalculationException {
-        Double res = lambda*Math.exp(x_egal_i-lambda);
+        Double res = lambda*Math.exp(-lambda*x_egal_i);
         return res;
     }
 
@@ -52,10 +52,9 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
         double x, res;
         if(a<0&&b<0) return 0;
         if(a<0) return density(0, b);
-        if(b<a&&b>0) return -density(b,a);
 
         try {
-            return getProbabiliteDeX(b)-getProbabiliteDeX(a);
+            return  getProbabiliteDeX(a) - getProbabiliteDeX(b);
         } catch (CalculationException e) {
             System.out.println(e.getMessage());
             return -1;
