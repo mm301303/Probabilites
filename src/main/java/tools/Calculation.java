@@ -21,13 +21,15 @@ public class Calculation {
         if(k==0 || k==n) return 1;
         if(k==1) return n;
         if(k>=2 && n>k) {
-            /*double num = factorielle(n);
+            double num = factorielle(n);
             double denom = factorielle(k) * factorielle(n - k);
             double coef = num / denom;
-            return coef;*/
+            return coef;
             //on peut simplifier par (n, n-k) = (n, k) = (n , k - 1) * [n+k+1/k]
             //TODO
-            return 0;
+            /*if(n-k<k) return kParmisN(n-k, n );
+
+            return kParmisN(k-1,n)*(n+k+1)/(double)k;*/
         }else {
             throw new CalculationException(k, n);
         }

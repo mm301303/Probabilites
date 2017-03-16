@@ -10,7 +10,7 @@ import tools.Displayable;
 public class NormaleLaw implements Law, Displayable {
     @Override
     public String getName() {
-        return "Normale laww";
+        return "Normale law must be applied on universe";
     }
 
     @Override
