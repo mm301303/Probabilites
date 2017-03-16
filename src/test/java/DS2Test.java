@@ -1,5 +1,6 @@
 import Laws.UniformLaw;
 import org.junit.Test;
+import tools.Calculation;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,7 +8,7 @@ import static org.junit.Assert.assertEquals;
  * Créé avec les rares archives du ds précédent
  */
 public class DS2Test {
-    double delta =0.001;
+    double delta = Calculation.DELTA;
     @Test
     public void question12(){
 
@@ -47,7 +48,7 @@ public class DS2Test {
         int borneInf = -7, borneSupp = 7;
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
-        for(double i=borneInf; i<borneSupp; i+=0.1){
+        for(double i=borneInf; i<borneSupp; i+=0.01){
             res=1-law.density(i, borneSupp);//on veut la partie droite de la courbe
             if(res<=0.20+delta && res>=0.20-delta){
                 System.out.println("pour i = " + i +" on obient res = " + res);

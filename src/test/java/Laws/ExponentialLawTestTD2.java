@@ -2,6 +2,7 @@ package Laws;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import tools.Calculation;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
  * Created by max on 14/03/17.
  */
 public class ExponentialLawTestTD2 {
-    double delta = 0.01;
+    double delta = Calculation.DELTA;
     @Test
     public void exo7TD2(){
         System.out.println("\nexo7TD2\n");

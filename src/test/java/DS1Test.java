@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  * Created by max on 07/03/17.
  */
 public class DS1Test {
-    double delta =0.1;
+    double delta = Calculation.DELTA;
     @Test
     public void Question2DS1Test() throws Exception, LawException {
         System.out.println("\nQuestion2DS1Test");
@@ -65,6 +65,7 @@ public class DS1Test {
         BinomialeLaw law = new BinomialeLaw(2./12., 5);
         double res = law.getProbabiliteDeX(1)+law.getProbabiliteDeX(0);
         System.out.println("law.getProbabiliteDeX(1)+law.getProbabiliteDeX(0) = " + res);
+
         assertEquals(3215./3888.,res, delta);
     }
 
@@ -74,12 +75,19 @@ public class DS1Test {
         System.out.println("on lance un dé a 6 face jusqu'à obtenir un 1, quel est le nombre moyen de lancers ?\n"+
         "Quelle est la proba d'obtenir un 1 en moins de 6 lancers ?");
         GeometricLaw law = new GeometricLaw(1./6.);
-        double res = 1. - Math.pow(5./6., 6.);
-        //Note, java fait des approximations quand on lui donne des formules
-        // préférer 5./6. à 1.-5./6.
-        System.out.println("le nombre moyen de lancer vaut "+res);
+        Double res = law.getProbabiliteDeX(1) +
+                law.getProbabiliteDeX(2) +
+                law.getProbabiliteDeX(3) +
+                law.getProbabiliteDeX(4) +
+                law.getProbabiliteDeX(5) ;
 
-        System.out.println("law.getProbabiliteDeX(6) = " + res);
+        System.out.println("le nombre moyen de lancer vaut "+res);
+        System.out.println("law.getProbabiliteDeX(1) +\n" +
+                "law.getProbabiliteDeX(2) +\n" +
+                "law.getProbabiliteDeX(3) +\n" +
+                "law.getProbabiliteDeX(4) +\n" +
+                "law.getProbabiliteDeX(5) = " + res);
+
 
         assertEquals(0.5981, res ,delta);
 

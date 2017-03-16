@@ -3,6 +3,7 @@ import Exceptions.LawException;
 import Laws.BinomialeLaw;
 import Laws.functions.Law;
 import org.junit.Test;
+import tools.Calculation;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class BinomialeLawTest {
     BinomialeLaw law;
-    double delta = 0.01;
+    double delta = Calculation.DELTA;
     @Test
     public void TD1exo21() throws Exception, LawException, CalculationException {
         System.out.println("\nTD1exo21");

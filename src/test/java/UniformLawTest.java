@@ -1,5 +1,9 @@
+import Exceptions.CalculationException;
+import Exceptions.LawException;
+import Laws.BinomialeLaw;
 import Laws.UniformLaw;
 import org.junit.Test;
+import tools.Calculation;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +11,7 @@ import static org.junit.Assert.*;
  * Created by max on 07/03/17.
  */
 public class UniformLawTest {
-
+    double delta = Calculation.DELTA;
     @Test
     public void exo1TD1(){//corrected
         System.out.println(this.getClass().getSimpleName()+" exo1TD1");
@@ -44,4 +48,5 @@ public class UniformLawTest {
         assertEquals(4., ul.getVariance(), 0.01);
 
     }
+
 }

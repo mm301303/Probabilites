@@ -21,7 +21,7 @@ public class BinomialeLaw implements Law, Displayable {
     @Override
     public double getProbabiliteDeX(double x_egal_i) throws CalculationException {
         //System.out.println(display());//for debug
-        return Calculation.kParmisN((int)x_egal_i, n)* Math.pow(p,x_egal_i) * Math.pow(1.0-p , n-x_egal_i);
+        return Calculation.kParmisN((int)x_egal_i, n)* Math.pow(p,x_egal_i) * Math.pow(1-p , n-x_egal_i);
     }
 
     @Override
