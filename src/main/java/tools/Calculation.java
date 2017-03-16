@@ -26,7 +26,8 @@ public class Calculation {
             double coef = num / denom;
             return coef;*/
             //on peut simplifier par (n, n-k) = (n, k) = (n , k - 1) * [n+k+1/k]
-            return kParmisN(k-)
+            //TODO
+            return 0;
         }else {
             throw new CalculationException(k, n);
         }
