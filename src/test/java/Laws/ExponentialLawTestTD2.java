@@ -39,6 +39,7 @@ public class ExponentialLawTestTD2 {
         System.out.println("la proba de dix messages et que les 10 prennent moins de 3 secondes est :\n" +
                 "density(0.,3.)^10");
 
+        System.out.println("Temps total moyen = 10 * 1/1 s");
 
         assertEquals(0.6001, p3, delta);
 

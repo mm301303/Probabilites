@@ -37,10 +37,8 @@ public class BinomialeLawTest {
         System.out.println("probabilité d'au moins une allergie sur 70 patients ?");
         BinomialeLaw law = new BinomialeLaw(0.01, 70);
         double res = 0;
-        for(int X=1; X<=70; X++) {
-            res+= law.getProbabiliteDeX(X);
-        }
-        System.out.println("res = " + res);
+        res = 1 - law.getProbabiliteDeX(0);
+        System.out.println("res = 1 - law.getProbabiliteDeX(0) = " + res);
 
         assertEquals(50.51/100.0, res, delta);
     }
@@ -60,9 +58,10 @@ public class BinomialeLawTest {
         int n=12,i;
         double proba12 = 0;
         BinomialeLaw law = new BinomialeLaw(0.95, n);
-        for(i=12; i<n+1; i++) proba12+=law.getProbabiliteDeX(i);
+        proba12=law.getProbabiliteDeX(12);
         System.out.println("proba12= " + proba12);
         assertEquals(0.5404, proba12, delta);
+
         assertFalse(proba12>=0.9);
         System.out.println("Pour 12 tirages P(X>=12) = "+proba12);
 
@@ -71,7 +70,9 @@ public class BinomialeLawTest {
         n=13;
         double proba13 = 0; //On garde la proba précédente
         law = new BinomialeLaw(0.95, n);
-        for(i=12; i<n+1; i++) proba13+=law.getProbabiliteDeX(i);
+        proba13=law.getProbabiliteDeX(12);
+        proba13=law.getProbabiliteDeX(12);
+
         assertEquals(0.8646, proba13, delta);
         assertFalse(proba13>=0.9);
         System.out.println("Pour 13 tirages P(X>=12) = P(X=12)+P(X=13) = "+proba13);
@@ -80,7 +81,8 @@ public class BinomialeLawTest {
         n=14;
         double proba14 = 0;
         law = new BinomialeLaw(0.95, n);
-        for(i=12; i<n+1; i++) proba14+=law.getProbabiliteDeX(i);
+        proba14 = law.getProbabiliteDeX(12);
+
         assertEquals(0.9699,proba14, delta);
         assertTrue(proba14>=0.9);
         System.out.println("Pour 14 tirages P(X>=12) = P(X=12)+P(X=13)+P(X=14) = "+proba14);
