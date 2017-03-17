@@ -36,8 +36,7 @@ public class DS1Test {
         System.out.println("\n");
     }
     @Test
-    @Ignore
-    //TODO fix
+
     public void Question3DS1Test() throws Exception, LawException, CalculationException {
         double res = 0;
         System.out.println("\nQuestion3DS1Test");

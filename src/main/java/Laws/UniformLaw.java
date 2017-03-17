@@ -2,43 +2,31 @@ package Laws;
 
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
-import org.apache.commons.math3.analysis.UnivariateFunction;
 import tools.Displayable;
 
 
 public class UniformLaw implements Law, ContinuousLaw, Displayable {
     private double supp;
     private double inf;
-    private UnivariateFunction DENSITY;
 
     private static final int MAX_EVAL=10;
-    //SimpsonIntegrator baseAbstractUnivariateIntegrator;
 
     public UniformLaw(double inf, double supp) {
-        //baseAbstractUnivariateIntegrator = new SimpsonIntegrator();
         this.inf = inf;
         this.supp = supp;
-
-        DENSITY = new UnivariateFunction() {
-            @Override
-            public double value(double x) {
-                return (x-inf)/(supp-inf);
-            }
-
-        };
 
     }
 
     @Override
     public double density(double a, double b) {
-        if(a>=b) return 0.;
-        else
-            return Math.abs(DENSITY.value(b) - DENSITY.value(a));
+        return density(b) - density(a);
     }
 
     @Override
     public double density(double a) {
-        return density(0,a);
+        if(a>=supp) return 1;
+        if(a<=0) return 0;
+        return (a-inf)/(supp-inf);
     }
 
     @Override

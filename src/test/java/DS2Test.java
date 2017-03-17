@@ -1,3 +1,5 @@
+import Exceptions.LawException;
+import Laws.GeometricLaw;
 import Laws.UniformLaw;
 import org.junit.Test;
 import tools.Calculation;
@@ -35,8 +37,6 @@ public class DS2Test {
 
     @Test
     public void question10(){
-        System.out.println("\nDS2Test question10");
-
         System.out.println("On tire une valeur de T selon une loi unifome sur [-7;7]");
         System.out.println(this.getClass().getSimpleName()+" question10");
         System.out.println("Pour quelle valeur de X a-t'on P(T>X)= 0.20 ?");
@@ -58,5 +58,16 @@ public class DS2Test {
         }
         return 0.;
     }
+    @Test
+    public void question1() throws LawException {
+        System.out.println("\nDS2 question 1");
+        System.out.println("La taille des carrotes de la ferme suit une loi uniforme sur l'intervalle [67;128]\n"
+        +"Quelle est la proportion de carrotes de grande taille, soit dans la catégorie [83;144] ?");
+        UniformLaw uniformeLaw = new UniformLaw(67.,128.);
+        double res = uniformeLaw.density(83.,144.);
+        System.out.println("res = uniformeLaw.density(83.,144.) = " + res);
+        assertEquals(45./61., res, Calculation.DELTA);
+    }
+
 
 }
