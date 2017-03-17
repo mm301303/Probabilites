@@ -8,7 +8,6 @@ import Exceptions.CalculationException;
 public interface Law {
      String getName();
      String getParameters();
-     double getProbabiliteDeX(double x_egal_i) throws CalculationException;
      double getEsperance();
      double getVariance();
 }

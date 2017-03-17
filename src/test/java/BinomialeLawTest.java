@@ -1,6 +1,7 @@
 import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.BinomialeLaw;
+import Laws.functions.DiscreteLaw;
 import Laws.functions.Law;
 import org.junit.Test;
 import tools.Calculation;
@@ -17,7 +18,7 @@ public class BinomialeLawTest {
     public void TD1exo21() throws Exception, LawException, CalculationException {
         System.out.println("\nTD1exo21");
         // P qu’il ait au moins un garçon ?
-        Law law = new BinomialeLaw(0.5, 2);
+        BinomialeLaw law = new BinomialeLaw(0.5, 2);
         System.out.println("Le voisin a deux enfants\nP qu’il ait au moins un garçon ?");
         double res = 0;
         for(int X=1; X<=2; X++) res+= law.getProbabiliteDeX(X);

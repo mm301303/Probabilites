@@ -2,6 +2,7 @@ package Laws;
 
 import Exceptions.CalculationException;
 import Exceptions.LawException;
+import Laws.functions.DiscreteLaw;
 import Laws.functions.Law;
 import tools.Calculation;
 import tools.Displayable;
@@ -9,7 +10,7 @@ import tools.Displayable;
 /**
  * Created by maxime on 09/03/17.
  */
-public class BinomialeLaw implements Law, Displayable {
+public class BinomialeLaw implements Law, Displayable, DiscreteLaw {
     private double p;
     private int n;
     public BinomialeLaw(double p,int n) throws LawException {

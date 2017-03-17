@@ -37,6 +37,11 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     }
 
     @Override
+    public double density(double a) {
+        return density(0,a);
+    }
+
+    @Override
     public double getEsperance() {
 
         return (inf+supp)/2;
@@ -69,9 +74,4 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     }
 
-    @Override
-    public double getProbabiliteDeX(double x_egal_i) {
-
-        return 0;//property
-    }
 }

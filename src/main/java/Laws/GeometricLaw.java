@@ -1,10 +1,11 @@
 package Laws;
 
 import Exceptions.LawException;
+import Laws.functions.DiscreteLaw;
 import Laws.functions.Law;
 import tools.Displayable;
 
-public class GeometricLaw implements Law, Displayable {
+public class GeometricLaw implements Law, Displayable, DiscreteLaw {
 
     private double proba_reussite;
 

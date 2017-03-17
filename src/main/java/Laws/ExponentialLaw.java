@@ -31,11 +31,6 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
         return "Lambda = "+lambda;
     }
 
-    @Override
-    public double getProbabiliteDeX(double x_egal_i) throws CalculationException {
-        Double res = lambda*Math.exp(-lambda*x_egal_i);
-        return res;
-    }
 
     @Override
     public double getEsperance() {
@@ -51,13 +46,12 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
     public double density(double a, double b) {
         double x, res;
         if(a<0&&b<0) return 0;
-        if(a<0) return density(0, b);
+        return  density(a) - density(b);
+    }
 
-        try {
-            return  getProbabiliteDeX(a) - getProbabiliteDeX(b);
-        } catch (CalculationException e) {
-            System.out.println(e.getMessage());
-            return -1;
-        }
+    @Override
+    public double density(double a) {
+        if(a<0) return 0;
+        else return lambda*Math.exp(-lambda*a);
     }
 }

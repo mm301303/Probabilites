@@ -5,4 +5,5 @@ package Laws.functions;
  */
 public interface ContinuousLaw {
     double density(double a, double b);
+    double density(double a);
 }
