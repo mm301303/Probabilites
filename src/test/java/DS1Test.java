@@ -52,14 +52,14 @@ public class DS1Test {
         System.out.println("les autres sont faciles");
 
         double quatrieme=1;
-        double ciquieme=1;//osef
+        double ciquieme=1;
+
         res= Calculation.kParmisN(3,5)*premiere*deuxieme*troisieme*quatrieme*ciquieme;
         System.out.println("P(X=3) = " + res);
         assertEquals(68./2639., res,delta);
 
     }
     @Test
-    @Ignore
     //TODO fix
     public void Question5DS1Test() throws Exception, LawException, CalculationException {
         System.out.println("\nQuestion5DS1Test");

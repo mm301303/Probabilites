@@ -1,3 +1,4 @@
+import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.GeometricLaw;
 import Laws.UniformLaw;
@@ -96,5 +97,29 @@ public class DS2Test {
                 System.out.println("tatonnement :On trouve l'heure d'ouverture a "+(double)(13.5-i)+"h" );
             }
         }
+    }
+    @Test
+    public void question3() throws CalculationException {
+        System.out.println("\nDS2 question 3");
+        double res = 0;
+        System.out.println("\nQuestion3DS1Test");
+        System.out.println("Jeu de carte a 3 couleurs, 39 cartes, à valeur entre 1 et 13\n"+
+                "On tire 5 cartes quelle est la proba d'obtenir trois cartes de même valeur ?");
+        System.out.println("kParmisN(3,5)*premiere*deuxieme*troisieme*quatrieme*ciquieme");
+        double premiere=1;
+        System.out.println("premiere = " + premiere);
+        double deuxieme= 36./38.;
+        System.out.println("deuxieme = " + deuxieme);
+        double troisieme= 33./37.;//avoir 3 cartes identiques en 1 tirage
+        System.out.println("troisieme = " + troisieme);
+
+        double quatrieme= 30./36.;
+        System.out.println("quatrieme = " + quatrieme);
+        double cinquieme= 27./35.;
+        System.out.println("cinquieme = " + cinquieme);
+
+        res= premiere*deuxieme*troisieme*quatrieme*cinquieme*Calculation.factorielle(5);
+        System.out.println("P(X=0) = " + res);
+        assertEquals(2673./4021., res,delta);
     }
 }
