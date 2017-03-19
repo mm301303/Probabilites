@@ -1,6 +1,5 @@
 package Laws;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import tools.Calculation;
 
@@ -21,23 +20,23 @@ public class ExponentialLawTestTD2 {
          */
         ExponentialLaw el = new ExponentialLaw(1);
 
-        double resultat = el.density(1.,2.);
+        double resultat = el.f(1.,2.);
 
-        System.out.println("resultat = density(1.,2.) = " + resultat);
+        System.out.println("resultat = f(1.,2.) = " + resultat);
         assertEquals(0.2325, resultat, delta);
         /**
          * quelle est la proba de dix messages et que les 10 prennent moins de 3 secondes ?
          */
         //P(X<3)
-        double p2 = el.density(0.,3.);
-        System.out.println("p2 = density(0.,3.) = " + p2);
+        double p2 = el.f(0.,3.);
+        System.out.println("p2 = f(0.,3.) = " + p2);
         assertEquals(0.95021, p2, delta);
 
         double p3 = 1;
-        for(int i=0; i<10;i++) p3 *= el.density(0.,3.);
+        for(int i=0; i<10;i++) p3 *= el.f(0.,3.);
 
         System.out.println("la proba de dix messages et que les 10 prennent moins de 3 secondes est :\n" +
-                "density(0.,3.)^10");
+                "f(0.,3.)^10");
 
         System.out.println("Temps total moyen = 10 * 1/1 s");
 

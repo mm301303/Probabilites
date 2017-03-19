@@ -1,6 +1,3 @@
-import Exceptions.CalculationException;
-import Exceptions.LawException;
-import Laws.BinomialeLaw;
 import Laws.UniformLaw;
 import org.junit.Test;
 import tools.Calculation;
@@ -21,13 +18,13 @@ public class UniformLawTest {
         UniformLaw uniformLaw = new UniformLaw(borneInfU, borneSuppU);
 
         System.out.println("Attendre moins de 5 min :");
-        double res5 = uniformLaw.density(10,15) + uniformLaw.density(25,30);
-        System.out.println("uniformLaw.density(10,15) + uniformLaw.density(25,30) = " + res5);
+        double res5 = uniformLaw.f(10,15) + uniformLaw.f(25,30);
+        System.out.println("uniformLaw.f(10,15) + uniformLaw.f(25,30) = " + res5);
         assertEquals(1./3., res5,0.01);
 
         System.out.println("Attendre moins de 10 min :");
-        double res5_2 = uniformLaw.density(5,10) + uniformLaw.density(20,25);
-        System.out.println("uniformLaw.density(5,10) + uniformLaw.density(20,25) = " + res5_2);
+        double res5_2 = uniformLaw.f(5,10) + uniformLaw.f(20,25);
+        System.out.println("uniformLaw.f(5,10) + uniformLaw.f(20,25) = " + res5_2);
         assertEquals(1./3., res5_2,0.01);
         System.out.println("resultat r1+r2 = " + (double)(res5_2+res5));
 

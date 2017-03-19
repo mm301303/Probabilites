@@ -49,7 +49,7 @@ public class Calculation {
         for( x=borneInf ; x<borneSup ; x+=dx )
         {
             // Calcul de l'aire de chaque petit rectangle que l'on ajoute à la surface totale
-            surface += nl.density(x)*dx;
+            surface += nl.f(x)*dx;
         }
         return surface;
     }

@@ -1,6 +1,5 @@
 package Laws;
 
-import Exceptions.CalculationException;
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
 import tools.Displayable;
@@ -43,14 +42,14 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
     }
 
     @Override
-    public double density(double a, double b) {
+    public double f(double a, double b) {
         double x, res;
         if(a<0&&b<0) return 0;
-        return  density(a) - density(b);
+        return  f(a) - f(b);
     }
 
     @Override
-    public double density(double a) {
+    public double f(double a) {
         if(a<0) return 0;
         else return lambda*Math.exp(-lambda*a);
     }

@@ -18,12 +18,12 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     }
 
     @Override
-    public double density(double a, double b) {
-        return density(b) - density(a);
+    public double f(double a, double b) {
+        return f(b) - f(a);
     }
 
     @Override
-    public double density(double a) {
+    public double f(double a) {
         if(a>=supp) return 1;
         if(a<=0) return 0;
         return (a-inf)/(supp-inf);

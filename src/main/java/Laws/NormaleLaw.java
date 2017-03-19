@@ -3,14 +3,10 @@ package Laws;
 import Exceptions.CalculationException;
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
-import tools.Calculation;
 import tools.Displayable;
-
-import javax.swing.text.MutableAttributeSet;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-import static java.lang.StrictMath.sqrt;
 import static tools.Calculation.approximationDintegrale;
 
 /**
@@ -54,17 +50,27 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
     }
 
     @Override
-    public double density(double a, double b) {
+    public double f(double a, double b) {
         return approximationDintegrale(max(a,b), min(a,b) , this);
     }
 
     @Override
-    public double density(double a) {
-        return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2)))/(variance+Math.pow(2*Math.PI, 0.5);
+    public double f(double a) {
+        return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2))/(variance+Math.pow(2*Math.PI, 0.5));
     }
 
-    double F(double x){
-        return 1−density(x)(b1*t+b2*Math.pow(t,2)+b3t3+b4t4+b5t5)+o(x5)
+    double F(double x_inferieur_a_y , double x_superieur_a_y){
+        int nb_points=100000;
+        double dx = esperance/nb_points;
+        double surface =0;
+        double i;
+        //la fonction est paire
+        if(x_inferieur_a_y<esperance) return F(esperance,Math.abs(x_inferieur_a_y))+F(esperance,x_superieur_a_y);
+        for(i=x_inferieur_a_y; i<x_superieur_a_y; i+=dx)
+        {
+            surface+=f(i)*dx;
+        }
+        return surface;
     }
 
 
