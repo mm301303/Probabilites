@@ -4,6 +4,9 @@ package Exceptions;
  * Created by max on 09/03/17.
  */
 public class CalculationException extends Throwable {
+    public CalculationException(double n) {
+        super("invalid calculation parameter :["+n+"]");
+    }
     public CalculationException(int n) {
         super("invalid calculation parameter :["+n+"]");
     }

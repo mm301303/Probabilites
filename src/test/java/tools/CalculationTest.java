@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
  * Created by max on 09/03/17.
  */
 public class CalculationTest {
+
     double delta = 0.01;
     @Test
     public void factorielle() throws Exception {

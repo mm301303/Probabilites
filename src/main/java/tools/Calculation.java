@@ -1,6 +1,7 @@
 package tools;
 
 import Exceptions.CalculationException;
+import Laws.NormaleLaw;
 
 /**
  * Created by maxime on 09/03/17.
@@ -33,6 +34,24 @@ public class Calculation {
         }else {
             throw new CalculationException(k, n);
         }
+    }
+
+    public static double approximationDintegrale(double borneInf, double borneSup, NormaleLaw nl){
+        double surface = 0;
+        double dx=0;
+        double x=0;
+        int n=10000;//parametre
+
+        System.out.println("En combien de parties voulez-vous decouper l'intervalle [1,4]? ");
+        // Détermination du dx
+        dx = 1./n;
+        // On intègre de 1 a 4 avec un pas de dx
+        for( x=borneInf ; x<borneSup ; x+=dx )
+        {
+            // Calcul de l'aire de chaque petit rectangle que l'on ajoute à la surface totale
+            surface += nl.density(x)*dx;
+        }
+        return surface;
     }
 
 }

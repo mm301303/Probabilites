@@ -3,11 +3,15 @@ package Laws;
 import Exceptions.CalculationException;
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
+import tools.Calculation;
 import tools.Displayable;
+
+import javax.swing.text.MutableAttributeSet;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.StrictMath.sqrt;
+import static tools.Calculation.approximationDintegrale;
 
 /**
  * TODO implement DS
@@ -18,8 +22,9 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
     private double variance;
     private double esperance;
 
-    public NormaleLaw(double esperance, double variance){
+    public NormaleLaw(double esperance, double variance) throws CalculationException {
         this.esperance = esperance;
+        if(variance<0) throw new CalculationException(variance);
         this.variance = variance;
     }
 
@@ -50,13 +55,18 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
 
     @Override
     public double density(double a, double b) {
-        return density(max(a,b)) - density(min(a,b));
+        return approximationDintegrale(max(a,b), min(a,b) , this);
     }
 
     @Override
     public double density(double a) {
-        return Math.pow(2*Math.PI*variance, -0.5)*Math.exp(-0.5*Math.pow(((a-esperance)/sqrt(variance)), 2));
+        return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2)))/(variance+Math.pow(2*Math.PI, 0.5);
     }
+
+    double F(double x){
+        return 1−density(x)(b1*t+b2*Math.pow(t,2)+b3t3+b4t4+b5t5)+o(x5)
+    }
+
 
 
 }
