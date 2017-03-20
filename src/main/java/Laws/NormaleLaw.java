@@ -71,7 +71,7 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
     }
 
 
-    double F_de_p_superieur_a(double b){
+    public double F_de_p_superieur_a(double b){
         if(b>esperance) return 1./2.-F(esperance,b);
         else return 1/2 + F(b, esperance);
     }
