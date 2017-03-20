@@ -52,14 +52,14 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
 
 
     public double F(double x_inferieur_a_y , double x_superieur_a_y){
-        int nb_points=1000;
+        int nb_points=10000;
         double dx = 1./nb_points;
         double surface =0;
         double i;
         //la fonction est paire
         for(i=x_inferieur_a_y; i<x_superieur_a_y; i+=dx)
         {
-            surface+=f(i)*dx;
+            surface += f(i)*dx;
         }
         return surface;
     }
@@ -72,8 +72,8 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
     }
 
     public double F_de_p_inferieur_a(double b) {
-        if(b>=0) return 1./2.+F(0,b);
-        else return 1/2 - F(b, 0);
+        if(b>=0) return 0.5 + F(0,b);
+        else return 0.5 - F(b, 0);
     }
 
 

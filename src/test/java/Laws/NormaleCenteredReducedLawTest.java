@@ -1,6 +1,7 @@
 package Laws;
 
 import Exceptions.CalculationException;
+import org.junit.Before;
 import org.junit.Test;
 import tools.Calculation;
 
@@ -10,15 +11,54 @@ import static org.junit.Assert.*;
  * Created by max on 20/03/17.
  */
 public class NormaleCenteredReducedLawTest {
-
+    NormaleCenteredReducedLaw ncrl;
+    double delta = Calculation.DELTA*1000;
+     @Before
+     public void init() throws CalculationException {
+         ncrl = new NormaleCenteredReducedLaw();
+     }
     @Test
-    public void f_de_p_superieur_a() throws Exception, CalculationException {
-        NormaleCenteredReducedLaw ncrl = new NormaleCenteredReducedLaw();
-        assertEquals(0.5,ncrl.F_de_p_inferieur_a(0), Calculation.DELTA);
+    public void f_de_p_superieur_a() throws  CalculationException {
+
+        assertEquals(0.5,ncrl.F_de_p_superieur_a(0), Calculation.DELTA);
+        f_de_p_superieur_aVals();
     }
 
     @Test
-    public void f_de_p_inferieur_a() throws Exception {
+    public void f_de_p_inferieur_a() throws  CalculationException {
+
+        assertEquals(0.5,ncrl.F_de_p_inferieur_a(0), Calculation.DELTA);
+        f_de_p_inferieur_aVals();
+
+
+    }
+
+    public void f_de_p_inferieur_aVals() throws  CalculationException {
+
+        assertEquals(0.53983, ncrl.F_de_p_inferieur_a(0.1), delta);
+        assertEquals(0.57926, ncrl.F_de_p_inferieur_a(0.2), delta);
+        assertEquals(0.61791, ncrl.F_de_p_inferieur_a(0.3), delta);
+        assertEquals(0.84134, ncrl.F_de_p_inferieur_a(1.), delta);
+        assertEquals(0.97725, ncrl.F_de_p_inferieur_a(2.), delta);
+    }
+
+    public void f_de_p_superieur_aVals() throws  CalculationException {
+
+        assertEquals(1-0.53983, ncrl.F_de_p_superieur_a(0.1), delta);
+        assertEquals(1-0.57926, ncrl.F_de_p_superieur_a(0.2), delta);
+        assertEquals(1-0.61791, ncrl.F_de_p_superieur_a(0.3), delta);
+        assertEquals(1-0.84134, ncrl.F_de_p_superieur_a(1.), delta);
+        assertEquals(1-0.97725, ncrl.F_de_p_superieur_a(2.), delta);
+    }
+
+    @Test
+    public void Ftest(){
+        System.out.println("erreur de " + (0.53983-0.52847)+" a "+(0.97725-0.84116)+"... =(");
+        assertEquals(0.53983, ncrl.F(0.,0.1)+0.5, delta);
+        assertEquals(0.57926, ncrl.F(0.,0.2)+0.5, delta);
+        assertEquals(0.61791, ncrl.F(0.,0.3)+0.5, delta);
+        assertEquals(0.84134, ncrl.F(0.,1.)+0.5, delta);
+        assertEquals(0.97725, ncrl.F(0.,2.), delta);
 
     }
 
