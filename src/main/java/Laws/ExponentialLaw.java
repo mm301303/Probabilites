@@ -58,4 +58,14 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
     public double F(double x_inferieur_a_y, double x_superieur_a_y) {
         return Calculation.approximationDintegrale(x_inferieur_a_y,x_superieur_a_y,this);
     }
+
+    @Override
+    public double F_de_p_superieur_a(double b) {
+        return 1 - F_de_p_inferieur_a(b);
+    }
+
+    @Override
+    public double F_de_p_inferieur_a(double b) {
+        return F(0, b);
+    }
 }

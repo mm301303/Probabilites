@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
  * Created by maxime on 19/03/17.
  */
 public class NormaleLawTest {
+    //need to find an impl for normaleLaw, maybe in apache common maths
 
     @Test
     public void exo10TD2() throws CalculationException {
@@ -19,7 +20,7 @@ public class NormaleLawTest {
                 "paramètre μ = 175 et σ = 6.\n" +
                 "Quel est le pourcentage des hommes de 25 ans ayant une taille supérieure à 185 cm ?");
         NormaleLaw law = new NormaleLaw(175, 36);
-        double res = 100*law.F_de_p_superieur_a(185.);
+        double res = law.F_de_p_superieur_a(185.);
         System.out.println("res = " + res);
         assertEquals(4.746,res, Calculation.DELTA);
         System.out.println("Parmi les hommes mesurant plus de 180 cm quel pourcentage mesure plus de 192 cm ?");
@@ -27,6 +28,7 @@ public class NormaleLawTest {
     }
 
     @Test
+    //TODO
     public void exo11TD2() throws CalculationException {
         System.out.println("L'intervalle de temps exprimé ->en heures<- entre deux redémarrages intempestifs d'une certaine machine ayant un certain OS\n"
                 +"suit une loi normale esperance = 3 et variance = 4\n"+
