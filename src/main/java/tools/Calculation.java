@@ -2,6 +2,7 @@ package tools;
 
 import Exceptions.CalculationException;
 import Laws.NormaleLaw;
+import Laws.functions.ContinuousLaw;
 
 /**
  * Created by maxime on 09/03/17.
@@ -36,7 +37,7 @@ public class Calculation {
         }
     }
 
-    public static double approximationDintegrale(double borneInf, double borneSup, NormaleLaw nl){
+    public static double approximationDintegrale(double borneInf, double borneSup, ContinuousLaw nl){
         double surface = 0;
         double dx=0;
         double x=0;

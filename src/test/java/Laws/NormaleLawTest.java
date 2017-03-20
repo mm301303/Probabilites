@@ -4,6 +4,8 @@ import Exceptions.CalculationException;
 import org.junit.Test;
 import tools.Calculation;
 
+import java.util.Map;
+
 import static org.junit.Assert.*;
 
 /**
@@ -17,10 +19,28 @@ public class NormaleLawTest {
                 "paramètre μ = 175 et σ = 6.\n" +
                 "Quel est le pourcentage des hommes de 25 ans ayant une taille supérieure à 185 cm ?");
         NormaleLaw law = new NormaleLaw(175, 36);
-        double res = law.F(149., 185.);
+        double res = 100*law.F_de_p_superieur_a(185.);
         System.out.println("res = " + res);
         assertEquals(4.746,res, Calculation.DELTA);
         System.out.println("Parmi les hommes mesurant plus de 180 cm quel pourcentage mesure plus de 192 cm ?");
+
+    }
+
+    @Test
+    public void exo11TD2() throws CalculationException {
+        System.out.println("L'intervalle de temps exprimé ->en heures<- entre deux redémarrages intempestifs d'une certaine machine ayant un certain OS\n"
+                +"suit une loi normale esperance = 3 et variance = 4\n"+
+                "on démarre un td de deux heures dans une salle ou il y a 20 machines fraichement rebootées en début de td\n"
+                +"quelle est la proba que le td puisse se terminer sans qu'il y ait de redémarrage ?");
+        NormaleLaw law = new NormaleLaw(3,4);
+        double probaTDSansRedemarrage = Math.pow(law.getEsperance(), 20);
+        double res1 = 1 - law.F_de_p_superieur_a(0);
+        System.out.println("Pour une machine res = 1-law.F(-1, 0) = "+res1);
+
+        double res20 = Math.pow(res1,20);
+        System.out.println("Pour 20 machines res = Math.pow(res1,20) = "+res20);
+        assertEquals(69.146/100,res1,Calculation.DELTA);
+        assertEquals(0.1708,res20,Calculation.DELTA);
 
 
 

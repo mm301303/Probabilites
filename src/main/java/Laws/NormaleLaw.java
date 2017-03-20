@@ -49,23 +49,20 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
         return variance;
     }
 
-    @Override
-    public double f(double a, double b) {
-        return approximationDintegrale(max(a,b), min(a,b) , this);
-    }
 
     @Override
     public double f(double a) {
         return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2))/(variance+Math.pow(2*Math.PI, 0.5));
     }
 
-    double F(double x_inferieur_a_y , double x_superieur_a_y){
-        int nb_points=100000;
+    public double F(double x_inferieur_a_y , double x_superieur_a_y){
+        int nb_points=1000000;
         double dx = esperance/nb_points;
         double surface =0;
         double i;
         //la fonction est paire
-        if(x_inferieur_a_y<esperance) return F(esperance,Math.abs(x_inferieur_a_y))+F(esperance,x_superieur_a_y);
+        if(x_inferieur_a_y<esperance&&x_superieur_a_y<esperance) return F(esperance,x_inferieur_a_y)-F(esperance, x_superieur_a_y);
+        if(x_inferieur_a_y>x_superieur_a_y) return -F(x_superieur_a_y, x_inferieur_a_y);
         for(i=x_inferieur_a_y; i<x_superieur_a_y; i+=dx)
         {
             surface+=f(i)*dx;
@@ -73,6 +70,16 @@ public class NormaleLaw implements Law, Displayable, ContinuousLaw {
         return surface;
     }
 
+
+    double F_de_p_superieur_a(double b){
+        if(b>esperance) return 1./2.-F(esperance,b);
+        else return 1/2 + F(b, esperance);
+    }
+
+    private double F_de_p_inferieur_a(double b) {
+        if(b>esperance) return 1./2.+F(esperance,b);
+        else return 1/2 - F(b, esperance);
+    }
 
 
 }

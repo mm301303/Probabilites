@@ -2,6 +2,7 @@ package Laws;
 
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
+import tools.Calculation;
 import tools.Displayable;
 
 /**
@@ -41,7 +42,6 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
         return 1./Math.pow(lambda,2);
     }
 
-    @Override
     public double f(double a, double b) {
         double x, res;
         if(a<0&&b<0) return 0;
@@ -52,5 +52,10 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
     public double f(double a) {
         if(a<0) return 0;
         else return lambda*Math.exp(-lambda*a);
+    }
+
+    @Override
+    public double F(double x_inferieur_a_y, double x_superieur_a_y) {
+        return Calculation.approximationDintegrale(x_inferieur_a_y,x_superieur_a_y,this);
     }
 }

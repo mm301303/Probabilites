@@ -17,7 +17,6 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     }
 
-    @Override
     public double f(double a, double b) {
         return f(b) - f(a);
     }
@@ -27,6 +26,11 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
         if(a>=supp) return 1;
         if(a<=0) return 0;
         return (a-inf)/(supp-inf);
+    }
+
+    @Override
+    public double F(double x_inferieur_a_y, double x_superieur_a_y) {
+        return (x_superieur_a_y-x_inferieur_a_y)*getEsperance();
     }
 
     @Override

@@ -26,7 +26,7 @@ public class DS2Test {
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
         for(double i=-9.0; i<5.0; i+=0.1){
-            res=law.f(-9., (double) i);
+            res=law.f(-9.,(double) i);
             if(res<=0.25+delta && res>=0.25-delta){
                 System.out.println("pour i = " + i+" on obient res = " +res);
                 return i;
