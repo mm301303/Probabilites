@@ -72,7 +72,7 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
     }
 
     public double F_de_p_inferieur_a(double b) {
-        if(b>0) return 1./2.+F(0,b);
+        if(b>=0) return 1./2.+F(0,b);
         else return 1/2 - F(b, 0);
     }
 
