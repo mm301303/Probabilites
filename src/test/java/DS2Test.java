@@ -31,7 +31,6 @@ public class DS2Test {
             if(res<=0.25+delta && res>=0.25-delta){
                 return i;
             }
-            System.out.println("res = " + res);
         }
         return 0.;
     }
@@ -55,7 +54,6 @@ public class DS2Test {
             if(res<=0.20+delta && res>=0.20-delta){
                 return i;
             }
-            System.out.println("res = " + res);
         }
         return 0.;
     }

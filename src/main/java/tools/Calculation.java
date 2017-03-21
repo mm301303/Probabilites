@@ -41,7 +41,8 @@ public class Calculation {
         double surface = 0;
         double dx=0;
         double x=1;
-        double n=10000*Math.abs(borneSup-borneInf);//parametre
+        double coef = Math.abs(borneSup-borneInf);
+        double n=(coef>10)?10000*coef:10000;//parametre
         // Détermination du dx
         dx = 1./n;
         for( x=borneInf ; x<=borneSup ; x+=dx )
