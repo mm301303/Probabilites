@@ -52,5 +52,23 @@ public class Calculation {
         }
         return surface;
     }
+    public static double integraleParSimpson(double borneInf, double borneSup, ContinuousLaw nl){
+        double coef = (borneSup-borneInf)/6.;
+        double f_de_a = nl.f(borneInf);
+        double f_de_b = nl.f(borneSup);
+        double autreterme = 4.*nl.f((borneInf+borneSup)/2.);
+        double op =0;
 
+        double n=10000;//parametre
+        // Détermination du dx
+        double dx = 1./n;
+        for( double x=borneInf ; x<=borneSup ; x+=dx )
+        {
+            // Calcul de l'aire de chaque petit rectangle que l'on ajoute à la surface totale
+            op += (f_de_a+autreterme+f_de_b)*dx;
+        }
+        return coef*op;
+
+
+    }
 }

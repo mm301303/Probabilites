@@ -52,6 +52,16 @@ public class CalculationTest {
         assertEquals(7./3.,res,Calculation.DELTA);
         assertEquals(7./3.,res2,Calculation.DELTA);
 
+    } @Test
+    public void integraleSimpsonTest() throws Exception {
+
+        ContinuousLaw cl = returnCL();
+
+        double res = Calculation.integraleParSimpson(1,2, cl);
+        double res2 = Calculation.integraleParSimpson(-2,-1, cl);
+        assertEquals(7./3.,res,Calculation.DELTA);
+        assertEquals(7./3.,res2,Calculation.DELTA);
+
     }
     @Test
     public void integrale2() throws Exception {
@@ -60,6 +70,15 @@ public class CalculationTest {
         assertEquals(primitivedeXcosX(2)-primitivedeXcosX(1), Calculation.approximationDintegrale(1,2, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(50)-primitivedeXcosX(1), Calculation.approximationDintegrale(1,50, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.approximationDintegrale(-20,10, cl), Calculation.DELTA);
+
+    }
+    @Test
+    public void integrale2_Simpson() throws Exception {
+
+        ContinuousLaw cl = returnCL2();
+        assertEquals(primitivedeXcosX(2)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,2, cl), Calculation.DELTA);
+        assertEquals(primitivedeXcosX(50)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,50, cl), Calculation.DELTA);
+        assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.integraleParSimpson(-20,10, cl), Calculation.DELTA);
 
     }
     private ContinuousLaw returnCL() {
