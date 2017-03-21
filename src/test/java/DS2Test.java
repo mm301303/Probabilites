@@ -29,7 +29,6 @@ public class DS2Test {
         for(double i=-9.0; i<5.0; i+=0.1){
             res=law.f(-9.,(double) i);
             if(res<=0.25+delta && res>=0.25-delta){
-                System.out.println("pour i = " + i+" on obient res = " +res);
                 return i;
             }
             System.out.println("res = " + res);
@@ -54,7 +53,6 @@ public class DS2Test {
         for(double i=borneInf; i<borneSupp; i+=0.01){
             res=1-law.f(i, borneSupp);//on veut la partie droite de la courbe
             if(res<=0.20+delta && res>=0.20-delta){
-                System.out.println("pour i = " + i +" on obient res = " + res);
                 return i;
             }
             System.out.println("res = " + res);
@@ -120,6 +118,6 @@ public class DS2Test {
 
         res= premiere*deuxieme*troisieme*quatrieme*cinquieme*Calculation.factorielle(5);
         System.out.println("P(X=0) = " + res);
-        assertEquals(2673./4021., res*100,delta);
+        assertEquals(2673./4021., res,delta);
     }
 }

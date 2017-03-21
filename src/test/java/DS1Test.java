@@ -83,13 +83,15 @@ public class DS1Test {
                 law.getProbabiliteDeX(3) +
                 law.getProbabiliteDeX(4) +
                 law.getProbabiliteDeX(5) ;
+                law.getProbabiliteDeX(6) ;
 
         System.out.println("le nombre moyen de lancer vaut "+res);
         System.out.println("law.getProbabiliteDeX(1) +\n" +
                 "law.getProbabiliteDeX(2) +\n" +
                 "law.getProbabiliteDeX(3) +\n" +
                 "law.getProbabiliteDeX(4) +\n" +
-                "law.getProbabiliteDeX(5) = " + res);
+                "law.getProbabiliteDeX(5) = " +
+                "law.getProbabiliteDeX(6) = " + res);//TODO ask why 6
 
 
         assertEquals(0.5981, res ,delta);

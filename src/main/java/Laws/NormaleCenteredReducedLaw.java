@@ -3,6 +3,7 @@ package Laws;
 import Exceptions.CalculationException;
 import Laws.functions.ContinuousLaw;
 import Laws.functions.Law;
+import tools.Calculation;
 import tools.Displayable;
 
 /**
@@ -52,21 +53,11 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
 
 
     public double F(double x_inferieur_a_y , double x_superieur_a_y){
-        int nb_points=10000;
-        double dx = 1./nb_points;
-        double surface =0;
-        double i;
-        //la fonction est paire
-        for(i=x_inferieur_a_y; i<x_superieur_a_y; i+=dx)
-        {
-            surface += f(i)*dx;
-        }
-        return surface;
+        return Calculation.approximationDintegrale(x_inferieur_a_y,x_superieur_a_y,this);
     }
 
 
     public double F_de_p_superieur_a(double b){
-        System.out.println("b = " +b+"->"+ F(0,b));
         if(b>=0) return 0.5 - F(0.,b);
         else return 0.5 + F(b, 0.);
     }

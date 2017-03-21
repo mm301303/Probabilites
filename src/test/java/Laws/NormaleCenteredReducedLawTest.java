@@ -8,11 +8,11 @@ import tools.Calculation;
 import static org.junit.Assert.*;
 
 /**
- * Created by max on 20/03/17.
+ * IMPLEMENT ANOTHER F
  */
 public class NormaleCenteredReducedLawTest {
     NormaleCenteredReducedLaw ncrl;
-    double delta = Calculation.DELTA*1000;
+    double delta = Calculation.DELTA;
      @Before
      public void init() throws CalculationException {
          ncrl = new NormaleCenteredReducedLaw();
@@ -29,7 +29,6 @@ public class NormaleCenteredReducedLawTest {
 
         assertEquals(0.5,ncrl.F_de_p_inferieur_a(0), Calculation.DELTA);
         f_de_p_inferieur_aVals();
-
 
     }
 

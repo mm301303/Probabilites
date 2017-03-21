@@ -41,12 +41,9 @@ public class Calculation {
         double surface = 0;
         double dx=0;
         double x=1;
-        int n=10000;//parametre
-
-        System.out.println("En combien de parties voulez-vous decouper l'intervalle [1,4]? ");
+        double n=10000*Math.abs(borneSup-borneInf);//parametre
         // Détermination du dx
         dx = 1./n;
-        // On intègre de 1 a 4 avec un pas de dx
         for( x=borneInf ; x<=borneSup ; x+=dx )
         {
             // Calcul de l'aire de chaque petit rectangle que l'on ajoute à la surface totale
