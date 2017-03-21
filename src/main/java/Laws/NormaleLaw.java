@@ -11,8 +11,11 @@ import static java.lang.Math.sqrt;
 import static tools.Calculation.approximationDintegrale;
 
 /**
- * TODO implement DS
- */
+ * Christophe Papazian [8:02 AM] 
+ * Il est important de comprendre que le résultat ne dépend ni de l'espérance, ni de l'écart-type.
+ * En particulier, cela donne une bonne idée de la répartition connaissant la moyenne et l'écart-type 
+ * d'une loi normale : on a environ 2 chances sur 3 d'être à moins d'un écart-type de l'espérance.
+*/
 public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLaw {
 
     private NormaleLaw normaleLaw;
