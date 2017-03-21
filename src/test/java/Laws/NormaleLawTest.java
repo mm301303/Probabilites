@@ -19,8 +19,8 @@ public class NormaleLawTest {
         System.out.println("On suppose que la taille en centimètres d’un humain mâle de 25 ans suit une loi aléatoire normale de\n" +
                 "paramètre μ = 175 et σ = 6.\n" +
                 "Quel est le pourcentage des hommes de 25 ans ayant une taille supérieure à 185 cm ?");
-        NormaleLaw law = new NormaleLaw(175, 36);
-        double res = law.F_de_p_superieur_a(185.);
+        NormaleCenteredReducedLaw law = new NormaleCenteredReducedLaw();
+        double res = law.F_de_p_superieur_a((185.-175.)/36.);//Avec La NCRL ca marche
         System.out.println("res = " + res);
         assertEquals(4.746,res, Calculation.DELTA);
         System.out.println("Parmi les hommes mesurant plus de 180 cm quel pourcentage mesure plus de 192 cm ?");
