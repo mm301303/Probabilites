@@ -71,18 +71,7 @@ public class CalculationTest {
 
             @Override
             public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-                double nb_points=100000;
-                double dx = 1./nb_points;
-                double surface =0;
-                double i=x_inferieur_a_y;
-                //la fonction est paire
-                for(; i<x_superieur_a_y; i=i+dx)
-                {
-                    surface += f(i)*dx;
-
-
-                }
-                return surface;
+               return Calculation.approximationDintegrale(x_inferieur_a_y, x_superieur_a_y,this);
             }
 
             @Override
