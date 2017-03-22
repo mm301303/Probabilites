@@ -27,6 +27,7 @@ public class NormaleCenteredReducedLawTest {
     public void f_de_p_inferieur_a() throws  CalculationException {
 
         assertEquals(0.5,ncrl.F(0), Calculation.DELTA);
+        assertEquals(4.746/100.,  ncrl.F(-3./5.), Calculation.DELTA);
 
     }
     @Test

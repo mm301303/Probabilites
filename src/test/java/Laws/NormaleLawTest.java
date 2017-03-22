@@ -14,6 +14,7 @@ import static org.junit.Assert.*;
 public class NormaleLawTest {
     //need to find an impl for normaleLaw, maybe in apache common maths
 
+
     @Test
     public void exo10TD2() throws CalculationException {
         System.out.println("On suppose que la taille en centimètres d’un humain mâle de 25 ans suit une loi aléatoire normale de\n" +

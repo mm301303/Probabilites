@@ -1,6 +1,7 @@
 package tools;
 
 import Exceptions.CalculationException;
+import Laws.NormaleCenteredReducedLaw;
 import Laws.NormaleLaw;
 import Laws.functions.ContinuousLaw;
 import org.junit.Test;
@@ -73,12 +74,13 @@ public class CalculationTest {
 
     }
     @Test
-    public void integrale2_Simpson() throws Exception {
-
+    public void integrale2_Simpson() throws Exception, CalculationException {
+        NormaleCenteredReducedLaw law = new NormaleCenteredReducedLaw();
         ContinuousLaw cl = returnCL2();
         assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.integraleParSimpson(-20,10, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(2)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,2, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(50)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,50, cl), Calculation.DELTA);
+
 
     }
     private ContinuousLaw returnCL() {

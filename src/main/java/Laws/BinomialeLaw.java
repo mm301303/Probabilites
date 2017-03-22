@@ -19,10 +19,10 @@ public class BinomialeLaw implements Law, Displayable, DiscreteLaw {
         if(!(p>0 && p<1 && n>0)) throw new LawException("Invalid parameters p="+p+" n="+n);
     }
 
-    @Override
-    public double getProbabiliteDeX(double x_egal_i) throws CalculationException {
+
+    public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
         //System.out.println(display());//for debug
-        return Calculation.kParmisN((int)x_egal_i, n)* Math.pow(p,x_egal_i) * Math.pow(1-p , n-x_egal_i);
+        return Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i);
     }
 
     @Override

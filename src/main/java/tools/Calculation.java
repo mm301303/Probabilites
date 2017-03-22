@@ -69,6 +69,7 @@ public class Calculation {
             approx += nl.f(x0) + 3.*nl.f(x1) + 3.*nl.f(x2) + nl.f(x3);
         }
         double res = 3*(h/8.)*approx;
+
         return res;
     }
 }
