@@ -76,9 +76,9 @@ public class CalculationTest {
     public void integrale2_Simpson() throws Exception {
 
         ContinuousLaw cl = returnCL2();
+        assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.integraleParSimpson(-20,10, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(2)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,2, cl), Calculation.DELTA);
         assertEquals(primitivedeXcosX(50)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,50, cl), Calculation.DELTA);
-        assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.integraleParSimpson(-20,10, cl), Calculation.DELTA);
 
     }
     private ContinuousLaw returnCL() {
