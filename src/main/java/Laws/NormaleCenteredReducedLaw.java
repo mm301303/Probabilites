@@ -52,8 +52,13 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
     }
 
     @Override
-    public double F(double x_inferieur_a_y) {
-        double integrale = Calculation.integraleParSimpson(0,x_inferieur_a_y,this);
+    public double F(double b) {
+        if(b==0.) return 0.5;
+        double integrale;
+        if(b>0)
+         integrale = Calculation.integraleParSimpson(0.,b,this);
+        else
+         integrale = Calculation.integraleParSimpson(b, 0., this);
         return integrale;
     }
 
