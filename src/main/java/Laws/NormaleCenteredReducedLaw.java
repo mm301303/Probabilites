@@ -53,7 +53,7 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
 
     @Override
     public double F(double x_inferieur_a_y) {
-        return ((x_inferieur_a_y>=0)?1/2:0) +Calculation.integraleParSimpson(0,x_inferieur_a_y,this);
+        return ((x_inferieur_a_y>0)?1/2:0)+Calculation.integraleParSimpson(0,x_inferieur_a_y,this);
     }
 
 
@@ -63,7 +63,7 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
 
 
     public double F_de_p_superieur_a(double b){
-        return 1-F(b);
+        return 1./2.-F(b);
     }
 
 }
