@@ -47,8 +47,8 @@ public class CalculationTest {
 
         ContinuousLaw cl = returnCL();
 
-        double res = cl.F(1,2);
-        double res2 = cl.F(-2,-1);
+        double res = cl.F(2)-cl.F(1);
+        double res2 =  cl.F(-1)-cl.F(-2);
         assertEquals(7./3.,res,Calculation.DELTA);
         assertEquals(7./3.,res2,Calculation.DELTA);
 
@@ -89,19 +89,8 @@ public class CalculationTest {
             }
 
             @Override
-            public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-                double nb_points=100000;
-                double dx = 1./nb_points;
-                double surface =0;
-                double i=x_inferieur_a_y;
-                //la fonction est paire
-                for(; i<x_superieur_a_y; i=i+dx)
-                {
-                    surface += f(i)*dx;
-
-
-                }
-                return surface;
+            public double F(double x_inferieur_a_y) {
+                return (x_inferieur_a_y>=0)?Calculation.integraleParSimpson(0, x_inferieur_a_y, this):Calculation.integraleParSimpson(x_inferieur_a_y, 0, this);
             }
 
             @Override
@@ -109,10 +98,6 @@ public class CalculationTest {
                 return 0;
             }
 
-            @Override
-            public double F_de_p_inferieur_a(double b) {
-                return 0;
-            }
         };
         return cl;
     }
@@ -124,30 +109,15 @@ public class CalculationTest {
             }
 
             @Override
-            public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-                double nb_points=100000;
-                double dx = 1./nb_points;
-                double surface =0;
-                double i=x_inferieur_a_y;
-                //la fonction est paire
-                for(; i<x_superieur_a_y; i=i+dx)
-                {
-                    surface += f(i)*dx;
-
-
-                }
-                return surface;
+            public double F(double x_inferieur_a_y) {
+                return (x_inferieur_a_y>=0)?Calculation.integraleParSimpson(0, x_inferieur_a_y, this):Calculation.integraleParSimpson(x_inferieur_a_y, 0, this);
             }
 
             @Override
             public double F_de_p_superieur_a(double b) {
-                return 0;
+                return 1 - F(b);
             }
 
-            @Override
-            public double F_de_p_inferieur_a(double b) {
-                return 0;
-            }
         };
         return cl;
     }

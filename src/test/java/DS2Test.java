@@ -27,7 +27,7 @@ public class DS2Test {
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
         for(double i=-9.0; i<5.0; i+=0.1){
-            res=law.f(-9.,(double) i);
+            res=law.F_de_p_superieur_a(i);
             if(res<=0.25+delta && res>=0.25-delta){
                 return i;
             }
@@ -36,12 +36,12 @@ public class DS2Test {
     }
 
     @Test
-    //TODO fix
     public void question10(){
-        System.out.println("On tire une valeur de T selon une loi unifome sur [-7;7]");
+        System.out.println("On tire une valeur de T selon une loi uniforme sur [-7;7]");
         System.out.println(this.getClass().getSimpleName()+" question10");
         System.out.println("Pour quelle valeur de X a-t'on P(T>X)= 0.20 ?");
-        assertEquals(-4.2, computeForQuestion10(), delta);
+        //assertEquals(-4.2, computeForQuestion10(), delta);
+        assertEquals(4.2, computeForQuestion10(), delta);
     }
 
     private double computeForQuestion10(){
@@ -49,13 +49,15 @@ public class DS2Test {
         int borneInf = -7, borneSupp = 7;
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
-        for(double i=borneInf; i<borneSupp; i+=0.01){
-            res=1-law.f(i, borneSupp);//on veut la partie droite de la courbe
-            if(res<=0.20+delta && res>=0.20-delta){
-                return i;
+        double i=borneSupp;
+        for(; i>borneInf; i-=0.1){
+            res = law.F_de_p_superieur_a(i);//on veut la partie droite de la courbe
+            if(res <= 0.2+0.0001 && res >= 0.2-0.0001){
+                System.out.println("res = " + res);
+                break;
             }
         }
-        return 0.;
+        return i;
     }
     @Test
     public void question1() throws LawException {
@@ -63,7 +65,7 @@ public class DS2Test {
         System.out.println("La taille des carrotes de la ferme suit une loi uniforme sur l'intervalle [67;128]\n"
                 +"Quelle est la proportion de carrotes de grande taille, soit dans la catégorie [83;144] ?");
         UniformLaw uniformeLaw = new UniformLaw(67.,128.);
-        double res = uniformeLaw.f(83.,144.);
+        double res = uniformeLaw.F(144.)- uniformeLaw.F(83.);
         System.out.println("res = uniformeLaw.f(83.,144.) = " + res);
         assertEquals(45./61., res, Calculation.DELTA);
     }
