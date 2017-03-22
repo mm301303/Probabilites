@@ -1,5 +1,6 @@
 package Laws;
 
+import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.functions.DiscreteLaw;
 import Laws.functions.Law;
@@ -16,9 +17,8 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
         }
     }
 
-    @Override
+
     public double getProbabiliteDeX(double x_egal_i) {
-        display();//for debug
         return Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite;
     }
 
@@ -46,4 +46,8 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
         return "pSuccess = "+proba_reussite ;
     }
 
+    @Override
+    public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
+        return Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite;
+    }
 }

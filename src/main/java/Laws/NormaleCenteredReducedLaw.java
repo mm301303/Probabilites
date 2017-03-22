@@ -51,21 +51,20 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
         return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2))/(variance+Math.pow(2*Math.PI, 0.5));
     }
 
-
-    public double F(double x_inferieur_a_y , double x_superieur_a_y){
-        return Calculation.approximationDintegrale(x_inferieur_a_y,x_superieur_a_y,this);
+    @Override
+    public double F(double b) {
+        if(b==0.) return 0.5;
+        double integrale;
+        if(b>0)
+         integrale = 0.5+Calculation.integraleParSimpson(esperance,b,this);
+        else
+         integrale = Calculation.integraleParSimpson(esperance, -b, this);
+        return integrale;
     }
 
 
     public double F_de_p_superieur_a(double b){
-        if(b>=0) return 0.5 - F(0.,b);
-        else return 0.5 + F(b, 0.);
+        return F(-b);
     }
-
-    public double F_de_p_inferieur_a(double b) {
-        if(b>=0) return 0.5 + F(0,b);
-        else return 0.5 - F(b, 0);
-    }
-
 
 }

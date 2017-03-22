@@ -23,31 +23,24 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double f(double a) {
-        if(a>=supp) return 1;
-        if(a<=0) return 0;
         return (a-inf)/(supp-inf);
     }
 
-    @Override
-    public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-        return (x_superieur_a_y-x_inferieur_a_y)*getEsperance();
+    public double F(double x_inferieur_a_y) {
+        if(x_inferieur_a_y>=supp) return 1;
+        if(x_inferieur_a_y<=inf) return 0;
+        return (x_inferieur_a_y-inf)/(supp-inf);
     }
 
     @Override
     public double F_de_p_superieur_a(double b) {
-        if(supp-b>0) return (supp - b)*getEsperance();
+        if(supp-b>0) return 1-F(b);
         return -1;
     }
 
-    @Override
-    public double F_de_p_inferieur_a(double b) {
-       if(b-inf>0) return (b-inf)*getEsperance();
-       return -1;
-    }
 
     @Override
     public double getEsperance() {
-
         return (inf+supp)/2;
     }
 

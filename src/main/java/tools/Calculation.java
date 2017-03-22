@@ -53,4 +53,23 @@ public class Calculation {
         return surface;
     }
 
+    public static double integraleParSimpson(double borneInf, double borneSup, ContinuousLaw nl){
+
+        int n = 600000;
+        double sections = n/3;
+        double h = (borneSup-borneInf)/n;
+        double approx =0;
+
+        double x0, x1, x2, x3;
+        for(int i =1 ; i<sections+1; i++){
+            x0 = borneInf + 3.*(i-1)*h;
+            x1 = x0 + h;
+            x2 = x1 + h;
+            x3 = x2 + h;
+            approx += nl.f(x0) + 3.*nl.f(x1) + 3.*nl.f(x2) + nl.f(x3);
+        }
+        double res = 3*(h/8.)*approx;
+
+        return res;
+    }
 }

@@ -1,6 +1,7 @@
 package tools;
 
 import Exceptions.CalculationException;
+import Laws.NormaleCenteredReducedLaw;
 import Laws.NormaleLaw;
 import Laws.functions.ContinuousLaw;
 import org.junit.Test;
@@ -47,8 +48,18 @@ public class CalculationTest {
 
         ContinuousLaw cl = returnCL();
 
-        double res = cl.F(1,2);
-        double res2 = cl.F(-2,-1);
+        double res = cl.F(2)-cl.F(1);
+        double res2 =  cl.F(-2)-cl.F(-1);
+        assertEquals(7./3.,res,Calculation.DELTA);
+        assertEquals(7./3.,res2,Calculation.DELTA);
+
+    } @Test
+    public void integraleSimpsonTest() throws Exception {
+
+        ContinuousLaw cl = returnCL();
+
+        double res = Calculation.integraleParSimpson(1,2, cl);
+        double res2 = Calculation.integraleParSimpson(-2,-1, cl);
         assertEquals(7./3.,res,Calculation.DELTA);
         assertEquals(7./3.,res2,Calculation.DELTA);
 
@@ -62,6 +73,16 @@ public class CalculationTest {
         assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.approximationDintegrale(-20,10, cl), Calculation.DELTA);
 
     }
+    @Test
+    public void integrale2_Simpson() throws Exception, CalculationException {
+        NormaleCenteredReducedLaw law = new NormaleCenteredReducedLaw();
+        ContinuousLaw cl = returnCL2();
+        assertEquals(primitivedeXcosX(10)-primitivedeXcosX(-20), Calculation.integraleParSimpson(-20,10, cl), Calculation.DELTA);
+        assertEquals(primitivedeXcosX(2)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,2, cl), Calculation.DELTA);
+        assertEquals(primitivedeXcosX(50)-primitivedeXcosX(1), Calculation.integraleParSimpson(1,50, cl), Calculation.DELTA);
+
+
+    }
     private ContinuousLaw returnCL() {
         ContinuousLaw cl = new ContinuousLaw() {
             @Override
@@ -70,19 +91,8 @@ public class CalculationTest {
             }
 
             @Override
-            public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-                double nb_points=100000;
-                double dx = 1./nb_points;
-                double surface =0;
-                double i=x_inferieur_a_y;
-                //la fonction est paire
-                for(; i<x_superieur_a_y; i=i+dx)
-                {
-                    surface += f(i)*dx;
-
-
-                }
-                return surface;
+            public double F(double x_inferieur_a_y) {
+                return (x_inferieur_a_y>=0)?Calculation.integraleParSimpson(0, x_inferieur_a_y, this):Calculation.integraleParSimpson(x_inferieur_a_y, 0, this);
             }
 
             @Override
@@ -90,10 +100,6 @@ public class CalculationTest {
                 return 0;
             }
 
-            @Override
-            public double F_de_p_inferieur_a(double b) {
-                return 0;
-            }
         };
         return cl;
     }
@@ -105,30 +111,15 @@ public class CalculationTest {
             }
 
             @Override
-            public double F(double x_inferieur_a_y, double x_superieur_a_y) {
-                double nb_points=100000;
-                double dx = 1./nb_points;
-                double surface =0;
-                double i=x_inferieur_a_y;
-                //la fonction est paire
-                for(; i<x_superieur_a_y; i=i+dx)
-                {
-                    surface += f(i)*dx;
-
-
-                }
-                return surface;
+            public double F(double x_inferieur_a_y) {
+                return (x_inferieur_a_y>=0)?Calculation.integraleParSimpson(0, x_inferieur_a_y, this):Calculation.integraleParSimpson(x_inferieur_a_y, 0, this);
             }
 
             @Override
             public double F_de_p_superieur_a(double b) {
-                return 0;
+                return 1 - F(b);
             }
 
-            @Override
-            public double F_de_p_inferieur_a(double b) {
-                return 0;
-            }
         };
         return cl;
     }
