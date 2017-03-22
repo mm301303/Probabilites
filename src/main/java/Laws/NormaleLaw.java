@@ -56,7 +56,7 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
 
     @Override
     public double f(double a) {
-        return super.f(a);
+        return Math.exp(-0.5*Math.pow(((a-esperance)/ Math.sqrt(variance)), 2))/(variance+Math.pow(2*Math.PI, 0.5));
     }
 
     @Override
@@ -67,8 +67,8 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
 
     public double F_de_p_superieur_a(double b){
         double ncrBorne = b-esperance/sqrt(variance);
-        if(b>0) return 1-super.F(0,ncrBorne);
-        else return 1/2 + super.F(ncrBorne, 0);
+        if(b>=0) return 1.-super.F(0,ncrBorne);
+        else return 0.5 + super.F(ncrBorne, 0);
     }
 
     @Override
