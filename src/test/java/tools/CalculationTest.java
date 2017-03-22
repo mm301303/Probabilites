@@ -48,7 +48,7 @@ public class CalculationTest {
         ContinuousLaw cl = returnCL();
 
         double res = cl.F(2)-cl.F(1);
-        double res2 =  cl.F(-1)-cl.F(-2);
+        double res2 =  cl.F(-2)-cl.F(-1);
         assertEquals(7./3.,res,Calculation.DELTA);
         assertEquals(7./3.,res2,Calculation.DELTA);
 

@@ -23,11 +23,11 @@ public class DS2Test {
     }
 
     private double computeForQuestion12(){
-        int borneInf = -9, borneSupp = 5;
+        double borneInf = -9., borneSupp = 5.;
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
-        for(double i=-9.0; i<5.0; i+=0.1){
-            res=law.F_de_p_superieur_a(i);
+        for(double i=-9.0; i<5.0; i+=0.01){
+            res=law.f(-9, i);
             if(res<=0.25+delta && res>=0.25-delta){
                 return i;
             }
@@ -49,9 +49,9 @@ public class DS2Test {
         int borneInf = -7, borneSupp = 7;
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
-        double i=borneSupp;
-        for(; i>borneInf; i-=0.1){
-            res = law.F_de_p_superieur_a(i);//on veut la partie droite de la courbe
+        double i=borneInf;
+        for(; i<=borneSupp; i+=0.1){
+            res = law.f(borneInf,i);//on veut la partie droite de la courbe
             if(res <= 0.2+0.0001 && res >= 0.2-0.0001){
                 System.out.println("res = " + res);
                 break;
@@ -104,19 +104,19 @@ public class DS2Test {
         System.out.println("Jeu de carte a 3 couleurs, 39 cartes, à valeur entre 1 et 13\n"+
                 "On tire 5 cartes quelle est la proba d'obtenir trois cartes de même valeur ?");
         System.out.println("kParmisN(3,5)*premiere*deuxieme*troisieme*quatrieme*ciquieme");
-        double premiere=1;
+        double premiere=1.;
         System.out.println("premiere = " + premiere);
-        double deuxieme= 36./38.;
+        double deuxieme= 2./38.;
         System.out.println("deuxieme = " + deuxieme);
-        double troisieme= 33./37.;//avoir 3 cartes identiques en 1 tirage
+        double troisieme= 1./37.;//avoir 3 cartes identiques en 1 tirage
         System.out.println("troisieme = " + troisieme);
-
-        double quatrieme= 30./36.;
+        double quatrieme= 1;
         System.out.println("quatrieme = " + quatrieme);
-        double cinquieme= 27./35.;
+        double cinquieme= 1;
         System.out.println("cinquieme = " + cinquieme);
 
-        res= premiere*deuxieme*troisieme*quatrieme*cinquieme*Calculation.factorielle(5);
+        res= premiere*deuxieme*troisieme*quatrieme*cinquieme*Calculation.kParmisN(3,5);
+
         System.out.println("P(X=0) = " + res);
         assertEquals(2673./4021., res,delta);
     }

@@ -23,7 +23,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double f(double a) {
-        return 1/(supp-inf);
+        return (a-inf)/(supp-inf);
     }
 
     public double F(double x_inferieur_a_y) {

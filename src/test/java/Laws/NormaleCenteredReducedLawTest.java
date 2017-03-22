@@ -32,7 +32,7 @@ public class NormaleCenteredReducedLawTest {
     @Test
     public void f_de_p_inferieur_aVals() throws  CalculationException {
 
-        assertEquals(0.03983, ncrl.F(0,0.1), delta);
+        assertEquals(0.03983, ncrl.F(0.1), delta);
         assertEquals(0.57926, ncrl.F(0.2), delta);
         assertEquals(0.61791, ncrl.F(0.3), delta);
         assertEquals(0.84134, ncrl.F(1.), delta);
@@ -51,11 +51,11 @@ public class NormaleCenteredReducedLawTest {
     @Test
     public void Ftest(){
         System.out.println("erreur de " + (0.53983-0.52847)+" a "+(0.97725-0.84116)+"... =(");
-        assertEquals(0.53983, ncrl.F(0.,0.1)+0.5, delta);
-        assertEquals(0.57926, ncrl.F(0.,0.2)+0.5, delta);
-        assertEquals(0.61791, ncrl.F(0.,0.3)+0.5, delta);
-        assertEquals(0.84134, ncrl.F(0.,1.)+0.5, delta);
-        assertEquals(0.97725, ncrl.F(0.,2.), delta);
+        assertEquals(0.53983, ncrl.F(0.1)+0.5, delta);
+        assertEquals(0.57926, ncrl.F(0.2)+0.5, delta);
+        assertEquals(0.61791, ncrl.F(0.3)+0.5, delta);
+        assertEquals(0.84134, ncrl.F(1.)+0.5, delta);
+        assertEquals(0.97725, ncrl.F(2.), delta);
 
     }
 
