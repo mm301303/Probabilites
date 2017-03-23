@@ -56,9 +56,9 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
         if(b==0.) return 0.5;
         double integrale;
         if(b>0)
-         integrale = 0.5+Calculation.integraleParSimpson(esperance,b,this);
+         integrale = 0.5+Calculation.integraleParSimpson(esperance, b,this);
         else
-         integrale = Calculation.integraleParSimpson(esperance, -b, this);
+         integrale = 0.5-Calculation.integraleParSimpson(esperance, -b, this);
         return integrale;
     }
 
