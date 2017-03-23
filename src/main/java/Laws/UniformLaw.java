@@ -21,9 +21,12 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
         return f(b) - f(a);
     }
 
+    public double F(double a, double b) {
+        return F(b) - F(a);
+    }
     @Override
     public double f(double a) {
-        return (a-inf)/(supp-inf);
+        return 1/(supp-inf);
     }
 
     public double F(double x_inferieur_a_y) {

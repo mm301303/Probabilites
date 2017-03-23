@@ -27,7 +27,7 @@ public class DS2Test {
         UniformLaw law = new UniformLaw(borneInf, borneSupp);
         double res =0;
         for(double i=-9.0; i<5.0; i+=0.01){
-            res=law.f(-9, i);
+            res=law.F(-9, i);
             if(res<=0.25+delta && res>=0.25-delta){
                 return i;
             }
@@ -50,7 +50,7 @@ public class DS2Test {
         double res =0;
         double i=borneInf;
         for(; i<=borneSupp; i+=0.1){
-            res = law.f(borneInf,i);//on veut la partie droite de la courbe
+            res = law.F(borneInf,i);//on veut la partie droite de la courbe
             if(res <= 0.2+0.0001 && res >= 0.2-0.0001){
                 System.out.println("res = " + res);
                 break;
