@@ -75,11 +75,9 @@ public class DS3Test {
                 "Quelle est la proba que le mec de a soit plus grand ?");
         NormaleLaw lawA = new NormaleLaw(169., 81.);
         NormaleLaw lawB = new NormaleLaw(180., 196.);
-        NormaleLaw lawC = new NormaleLaw((lawA.getEsperance()-lawB.getEsperance()), sqrt(lawA.getVariance()+lawB.getVariance()));
-        double res = lawC.F_de_p_superieur_a(0);
-        System.out.println("->"+11./sqrt(14*14+81.));
-        assertEquals(0.2543, res, 0.001);
-
+        NormaleLaw lawC = new NormaleLaw((lawA.getEsperance()-lawB.getEsperance()) , sqrt(lawA.getVariance()+lawB.getVariance()));
+        double res = (1.-lawC.F(0))/2.;//TODO ask : why 0.5
+        assertEquals(0.2543, res, 0.01);
     }
 
 
