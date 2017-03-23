@@ -24,6 +24,7 @@ public class ExponentialLawTestTD2 {
 
         System.out.println("resultat = f(1.,2.) = " + resultat);
         assertEquals(0.2325, resultat, delta);
+        assertEquals(0.2325, el.F(1.,2.), delta);
         /**
          * quelle est la proba de dix messages et que les 10 prennent moins de 3 secondes ?
          */
