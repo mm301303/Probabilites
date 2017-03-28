@@ -3,6 +3,7 @@ import Laws.ExponentialLaw;
 import Laws.NormaleCenteredReducedLaw;
 import Laws.NormaleLaw;
 import Laws.UniformLaw;
+import Properties.Markov;
 import Properties.Tchebychev;
 import org.junit.Test;
 import tools.Calculation;
@@ -45,5 +46,27 @@ public class TD3Test {
 
     }
 
+    @Test
+    public void ex3() throws CalculationException {
+        double moy=10.;
+        System.out.println("\nExercice 3");
+        System.out.println("Soit X une variable aléatoire à valeur positive d’espérance\n" +
+                "E(X) = 10");
+        System.out.println("Trouver une borne inférieure pour P(X<20)");
+        System.out.println("Par Markov:");
+        double res = Markov.P_x_inferieur_a_y(moy, 20);
+        assertEquals(0.5, res,Calculation.DELTA);
+        System.out.println("Même question si X suit une loi exponentielle.");
+        ExponentialLaw exponentialLaw = new ExponentialLaw(1./moy);
+        System.out.println("Rappel : Moyenne = 1/lambda");
+        assertEquals(moy,exponentialLaw.getEsperance(), Calculation.DELTA);
+        double resExp = exponentialLaw.F( 20);
+        assertEquals(0.8647, resExp,Calculation.DELTA);
+        System.out.println("Même question si\n" +
+                "X\n" +
+                "suit une loi uniforme.");
+        assertEquals(true, false);//TODO
+
+    }
 
 }
