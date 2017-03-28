@@ -38,6 +38,7 @@ public class TD3Test {
         System.out.println("\nPar la loi normale :");
         NormaleLaw normaleLaw = new NormaleLaw(moy, s*s);
         double res = 1.-(2.*normaleLaw.F(45));
+        //TODO Fix
         assertEquals(0.999937, res, Calculation.DELTA );
         System.out.println("Par la loi normale la proportion d'etudiants entre 45 et 85 vaut " +res);
 
@@ -51,7 +52,7 @@ public class TD3Test {
                 "E(X) = 10");
         System.out.println("Trouver une borne inférieure pour P(X<20)");
         System.out.println("Par Markov:");
-        double res = Markov.P_x_inferieur_a_y(moy, 20);
+        double res = Markov.P_x_sup_a_y_inferieur_a(moy, 20);
         System.out.println("res = " + res);
 
         assertEquals(0.5, res,Calculation.DELTA);
@@ -73,7 +74,29 @@ public class TD3Test {
         double resUni = ulaw.F( 20);
         assertEquals(1,resUni, Calculation.DELTA);
         System.out.println("res = " + resUni);
-        
+
+    }
+
+    @Test
+    public void ex4() throws CalculationException {
+
+        System.out.println("\nExercice 4");
+        System.out.println("Trouvez la meilleure borne pour P(X>10) : ");
+        double resA=0,resB=0,resC=0,resD=0;
+        System.out.println("E(X) = 3 & X>0");
+        resA = Markov.P_x_sup_a_y_inferieur_a(3., 10);
+        System.out.println("E(X) = 7 & X>6");
+        resB = Markov.P_x_sup_a_y_inferieur_a(7.-6., 10.-6.);
+        System.out.println("E(X) = 2 & X>-5");
+        resC = Markov.P_x_sup_a_y_inferieur_a(2.+5, 15);
+        System.out.println("E(X) = 5 & X>-10");
+        resD = Markov.P_x_sup_a_y_inferieur_a(5+10, 20);
+
+        assertEquals(0.3, resA, Calculation.DELTA);
+        assertEquals(0.25, resB, Calculation.DELTA);
+        assertEquals(7./15., resC, Calculation.DELTA);
+        assertEquals(15./20., resD, Calculation.DELTA);
+
     }
 
 }
