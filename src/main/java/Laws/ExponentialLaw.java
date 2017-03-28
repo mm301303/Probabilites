@@ -56,7 +56,7 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double F(double x_inferieur_a_y) {
-        return Calculation.approximationDintegrale(0,x_inferieur_a_y,this);
+        return Calculation.integraleParSimpson(0,x_inferieur_a_y,this);
 
     }
 
@@ -66,7 +66,7 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double F_de_p_superieur_a(double b) {
-        return 1 - F(b);
+        return F(b);
     }
 
 

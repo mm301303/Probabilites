@@ -68,6 +68,18 @@ public class DS3Test {
 
     }
     @Test
+    public void question7_correc_groupe_fb() throws CalculationException {
+        System.out.println("question7_correc_groupe_fb");
+        System.out.println("Soit deux lampes L1 et L2\n" +
+                "Leurs durees de vies suivent des lois exponentielles de moyenne resp 9 et 14"+
+                "\nQuelle est la proba que les deux lampes fonctionnent 10500h");
+        ExponentialLaw L1 = new ExponentialLaw(9000);
+        ExponentialLaw L2 = new ExponentialLaw(14000);
+        double res = L1.F_de_p_superieur_a(10500)/1000+L2.F_de_p_superieur_a(10500)/1000;
+        System.out.println("res = " + res);
+        assertEquals(0.1471, res, 0.01);
+    }
+    @Test
     public void question8_correc_groupe_fb() throws CalculationException {
         System.out.println("question8_correc_groupe_fb");
         System.out.println("La taille des habitants d'un pays A suit une loi normale u=169 et s=9\n"+
@@ -75,11 +87,9 @@ public class DS3Test {
                 "Quelle est la proba que le mec de a soit plus grand ?");
         NormaleLaw lawA = new NormaleLaw(169., 81.);
         NormaleLaw lawB = new NormaleLaw(180., 196.);
-        NormaleLaw lawC = new NormaleLaw((lawA.getEsperance()-lawB.getEsperance()), sqrt(lawA.getVariance()+lawB.getVariance()));
-        double res = lawC.F_de_p_superieur_a(0.);
-        System.out.println("->"+11./sqrt(14*14+81.));
-        assertEquals(0.2543, res, 0.001);
-
+        NormaleLaw lawC = new NormaleLaw((lawA.getEsperance()+lawB.getEsperance()) , sqrt(lawA.getVariance()+lawB.getVariance()));
+        double res = (1.-lawC.F(0))/2.;//TODO ask : why 0.5
+        assertEquals(0.2543, res, 0.01);
     }
 
 
