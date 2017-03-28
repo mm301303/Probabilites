@@ -41,9 +41,6 @@ public class TD3Test {
         assertEquals(0.999937, res, Calculation.DELTA );
         System.out.println("Par la loi normale la proportion d'etudiants entre 45 et 85 vaut " +res);
 
-
-
-
     }
 
     @Test
@@ -55,6 +52,8 @@ public class TD3Test {
         System.out.println("Trouver une borne inférieure pour P(X<20)");
         System.out.println("Par Markov:");
         double res = Markov.P_x_inferieur_a_y(moy, 20);
+        System.out.println("res = " + res);
+
         assertEquals(0.5, res,Calculation.DELTA);
         System.out.println("Même question si X suit une loi exponentielle.");
         ExponentialLaw exponentialLaw = new ExponentialLaw(1./moy);
@@ -62,11 +61,19 @@ public class TD3Test {
         assertEquals(moy,exponentialLaw.getEsperance(), Calculation.DELTA);
         double resExp = exponentialLaw.F( 20);
         assertEquals(0.8647, resExp,Calculation.DELTA);
-        System.out.println("Même question si\n" +
-                "X\n" +
-                "suit une loi uniforme.");
-        assertEquals(true, false);//TODO
+        System.out.println("res = " + resExp);
 
+        System.out.println("Même question si X suit une loi uniforme.");
+        System.out.println("Rappel : Moyenne = (inf+supp)/2");
+
+        double inf=0;
+        double supp=20;
+        UniformLaw ulaw = new UniformLaw(inf,supp);
+        assertEquals(moy, ulaw.getEsperance(), Calculation.DELTA );
+        double resUni = ulaw.F( 20);
+        assertEquals(1,resUni, Calculation.DELTA);
+        System.out.println("res = " + resUni);
+        
     }
 
 }
