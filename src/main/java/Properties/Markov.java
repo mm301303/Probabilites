@@ -9,7 +9,8 @@ public class Markov {
      * @param esp_x
      * @return P(x<y)<this
      */
-    public static double P_x_inferieur_a_y(double esp_x, double y){
+    public static double P_x_sup_a_y_inferieur_a(double esp_x, double y){
         return esp_x/y;
     }
+
 }
