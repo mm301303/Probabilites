@@ -60,6 +60,7 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
     }
 
     public double F(double a, double b){
+
         return super.F((b-esperance)/sqrt(variance)) - super.F(a-esperance)/sqrt(variance);
     }
     

@@ -76,7 +76,7 @@ public class DS3Test {
         NormaleLaw lawA = new NormaleLaw(169., 81.);
         NormaleLaw lawB = new NormaleLaw(180., 196.);
         NormaleLaw lawC = new NormaleLaw((lawA.getEsperance()-lawB.getEsperance()), sqrt(lawA.getVariance()+lawB.getVariance()));
-        double res = lawC.F_de_p_superieur_a(0);
+        double res = lawC.F_de_p_superieur_a(0.);
         System.out.println("->"+11./sqrt(14*14+81.));
         assertEquals(0.2543, res, 0.001);
 
