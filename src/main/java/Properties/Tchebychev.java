@@ -6,10 +6,10 @@ package Properties;
 public class Tchebychev {
     /**
      * approxime a plus ou moins t autour de la moyenne
-     * @param x
-     * @param var_x
-     * @param t
-     * @return
+     * généralement de manière peu précise
+     * Valable pour tout t>0, pour tout X une var aléatoire ayant une variance finie
+     * @param var_x : La variance de la variable aléatoire
+     * @param t : t tel que  P( |X-E(X)| > t ) < V(X) / (t^2)
      */
     public static double inequality(double var_x, double t){
         return var_x*var_x/(t*t);

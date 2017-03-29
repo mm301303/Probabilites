@@ -106,7 +106,7 @@ public class TD3Test {
         System.out.println("\nExercice 5");
         String consigne = "Soit une variable aléartoire d'espérence E(X)=0" +
                 "\ntelle que P(-3<X<2)=1/2"+
-                "\na) Trouvez une borne inférieure pour V(X)";
+                "\na) Trouvez une borne inférieure pour V(X)"+
                 "\nb) Trouvez V(X) si X suit une loi uniforme";
 
         assertFalse(true);
