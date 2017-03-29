@@ -96,7 +96,8 @@ public class DS2Test {
         }
     }
     @Test
-
+    //TODO
+    //encore lui
     public void question3() throws CalculationException {
         System.out.println("\nDS2 question 3");
         double res = 0;
