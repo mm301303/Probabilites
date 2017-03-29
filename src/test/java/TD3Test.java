@@ -6,6 +6,7 @@ import Laws.UniformLaw;
 import Properties.CentralLimitTheorem;
 import Properties.Markov;
 import Properties.Tchebychev;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Test;
 import tools.Calculation;
 
@@ -138,10 +139,17 @@ public class TD3Test {
         System.out.println("Calculons la variance");
         //TODO ASK
         double variance = 100*(7*5)/(2*6) ;//WHY ??
+        System.out.println("variance = " + variance);
         double res = Tchebychev.inequality(variance,50);
-
+        System.out.println("res = Tchebychev.inequality(variance,50);");
         assertEquals(7./60., res, 0.001);
+        System.out.println("par le tcl, S suit une loi normale avec u = 350 et ecart_type = racine(100*(7*5)/(2*6))= "+ Math.sqrt(100*(7*5)/(2*6)));
+        NormaleLaw normaleLaw = new NormaleLaw(350, Math.sqrt(291));
+        res = normaleLaw.F(-400,300);
+        assertEquals(0.3415, res, Calculation.DELTA);
+
         assertFalse(true);
+
     }
 
 }
