@@ -108,8 +108,23 @@ public class TD3Test {
                 "\ntelle que P(-3<X<2)=1/2"+
                 "\na) Trouvez une borne inférieure pour V(X)"+
                 "\nb) Trouvez V(X) si X suit une loi uniforme";
+        System.out.println("a) \n -on sait que P(-3<X<2) < P(-2<X<2)" +
+                "\net p(|x|<2)=1-(P(|X|>2)<1/2, on ne peut pas appliquer l'inégalité de markov car X est d'esperance nulle." +
+                "\nOn peut appliquer Tchbichev P( |X-E(X)| > t ) < V(X) / (t^2) avec t = 1/2 et E(X) = 0 :" +
+                "\ncomme P(|x-0|<2)<P(-3<X<2)  on obtient  P(|x-0|<2) < 1/2");
+       double res = 0;
+       res = Tchebychev.inequality(2.,2.);
+       System.out.println("Pour une variance >= 2, P(|x-0|<2)=2/2*2 = "+res+">= 1/2");
+       assertEquals(1/2., res, Calculation.DELTA);
 
-        assertFalse(true);
+        System.out.println("b) Si X suit une loi uniforme comme P(-3<X<2)=1/2" +
+                "\nSur 5 valeurs on vaut 1/2, il faut 10 valeurs pour un d'ou :" );
+        UniformLaw law = new UniformLaw(-5,5);
+        double esp = law.getEsperance();
+        double var = law.getVariance();
+        assertEquals(0, esp, Calculation.DELTA);
+        assertEquals(8.33, var, 0.01);
+
     }
 
     @Test

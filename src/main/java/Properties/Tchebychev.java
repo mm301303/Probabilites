@@ -12,6 +12,6 @@ public class Tchebychev {
      * @param t : t tel que  P( |X-E(X)| > t ) < V(X) / (t^2)
      */
     public static double inequality(double var_x, double t){
-        return var_x*var_x/(t*t);
+        return var_x / (t*t);
     }
 }
