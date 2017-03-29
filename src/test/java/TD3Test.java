@@ -10,6 +10,7 @@ import tools.Calculation;
 
 import static java.lang.Math.sqrt;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * approximation are really bad due to a minimalist implementation of mathematical models...
@@ -97,6 +98,28 @@ public class TD3Test {
         assertEquals(7./15., resC, Calculation.DELTA);
         assertEquals(15./20., resD, Calculation.DELTA);
 
+    }
+
+    @Test
+    public void ex5() throws CalculationException {
+
+        System.out.println("\nExercice 5");
+        String consigne = "Soit une variable aléartoire d'espérence E(X)=0" +
+                "\ntelle que P(-3<X<2)=1/2"+
+                "\na) Trouvez une borne inférieure pour V(X)";
+                "\nb) Trouvez V(X) si X suit une loi uniforme";
+
+        assertFalse(true);
+    }
+
+    @Test
+    public void ex6() throws CalculationException {
+
+        System.out.println("\nExercice 6");
+        String consigne = "On lance un dé 100 fois et on fait la somme S des résultats." +
+                "\nQue peut-on dire de P(|S-350|>50 ? ";
+
+        assertFalse(true);
     }
 
 }
