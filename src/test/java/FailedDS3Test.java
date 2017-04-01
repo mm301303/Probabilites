@@ -1,8 +1,6 @@
 import Exceptions.CalculationException;
-import Laws.ExponentialLaw;
-import Laws.NormaleCenteredReducedLaw;
-import Laws.NormaleLaw;
-import Laws.UniformLaw;
+import Exceptions.LawException;
+import Laws.*;
 import Properties.Markov;
 import Properties.Tchebychev;
 import org.junit.Before;
@@ -41,9 +39,15 @@ public class FailedDS3Test {
     }
 
     @Test
-    public void ex2() {
+    public void ex2() throws CalculationException, LawException {
         System.out.println("ENONCE :\n" +
-                ""+"\n"+"\n"+"\n"+"\n"+"\n");
+                "La duree de vie d'une ampoule LeD suit une loi exponentielle de moyenne 11000 h\n"+
+                "Vous achetez 4 ampoules\n"+
+                "Quelle est la proba d'avoir exactement une ampoule morte au bout de 11000h?\n");
+        ExponentialLaw exponentialLaw = new ExponentialLaw(11000);
+        BinomialeLaw binomialeLaw = new BinomialeLaw(exponentialLaw.getEsperance(),11000);
+        //TODO ask
+        res = binomialeLaw.getProbabiliteDeX(0)*Calculation.kParmisN(3,4)*binomialeLaw.getProbabiliteDeX(1)*Calculation.kParmisN(1,4);
         assertEquals(0.1259, res, Calculation.DELTA );
     }
     @Test
