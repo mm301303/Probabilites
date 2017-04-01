@@ -1,5 +1,6 @@
 import Exceptions.CalculationException;
 import Laws.ExponentialLaw;
+import Laws.NormaleCenteredReducedLaw;
 import Laws.NormaleLaw;
 import Laws.UniformLaw;
 import Properties.Markov;
@@ -24,46 +25,75 @@ public class FailedDS3Test {
     }
 
     @Test
-    public void ex1() {
+    public void ex1() throws CalculationException {
+        System.out.println("ENONCE :\n" +
+                "La taille des hommes en Syldavie suit une loi normale : u = 180, ecart type s = 5 (cm)\n"+
+                "Le corps d'élite de l'armée est composé d'hommes de cette population a condition que leur taille soir >=185cm\n"+
+                "Quelle est la proportion d'hommes du corps d'élite de taille >= 190cm?\n");
+
+        //on essaie avec la NCR
+        NormaleCenteredReducedLaw taille_syldavie = new NormaleCenteredReducedLaw();
+        //La question est parmis les hommes de taille >= 185 quelle proportion sont >= 190
+        double F_185 = taille_syldavie.F((185.-180.)/5.); //sur sigma
+        double F_190 = taille_syldavie.F((190.-180.)/5.);
+        res = F_190-F_185;
         assertEquals(0.143393, res, Calculation.DELTA );
     }
 
     @Test
     public void ex2() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(0.1259, res, Calculation.DELTA );
     }
     @Test
     public void ex3() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(0.950213, res, Calculation.DELTA );
     }
     @Test
     public void ex4() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(0.2946, res, Calculation.DELTA );
     }
     @Test
     public void ex5() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(40./9., res, Calculation.DELTA );
     }
     @Test
     public void ex6() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(406./899., res, Calculation.DELTA );
 
     }
     @Test
     public void ex7() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(1.4608, res, Calculation.DELTA );
     }
     @Test
     public void ex8() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(570., res, Calculation.DELTA );
     }
     @Test
     public void ex9() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         System.out.println("Aucun de ces évenements ne sont indépendants !");
     }
 
     @Test
     public void ex10() {
+        System.out.println("ENONCE :\n" +
+                ""+"\n"+"\n"+"\n"+"\n"+"\n");
         assertEquals(0.002737, res, Calculation.DELTA );
 
     }

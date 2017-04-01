@@ -72,7 +72,7 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
 
     @Override
     public double F(double b){
-        double terme_ncr = (b-esperance)/sqrt(variance);
+        double terme_ncr = (b-esperance)/sqrt(variance); //juste normalement
         return super.F(terme_ncr);
     }
 }
