@@ -52,9 +52,15 @@ public class FailedDS3Test {
     }
     @Test
     public void ex3() {
+
         System.out.println("ENONCE :\n" +
-                ""+"\n"+"\n"+"\n"+"\n"+"\n");
-        assertEquals(0.950213, res, Calculation.DELTA );
+                "Un très grand nombre de personnes viennent chaque jour a HyperLuxe, regarder les articles.\n"+
+                "On a en moyenne 3 vols par jours.\n" +
+                "Quelle sera la proportion de jours avec au plus un vol ?\n");
+        PoissonLaw poissonLaw = new PoissonLaw(3);
+        res=1. - poissonLaw.getProbabiliteDeX(1)*poissonLaw.getProbabiliteDeX(0);
+        System.out.println("res = res = 1. - poissonLaw.getProbabiliteDeX(1)*poissonLaw.getProbabiliteDeX(0) =" + res);
+        assertEquals(0.950213, res, 0.05 );
     }
     @Test
     public void ex4() {
