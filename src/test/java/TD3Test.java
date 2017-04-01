@@ -137,7 +137,6 @@ public class TD3Test {
                 "\nQue peut-on dire de P(|S-350|>50 ? ";
         System.out.println("E(S) vaut 100*E(Dé)= 100*3.5");
         System.out.println("Calculons la variance");
-        //TODO ASK
         double variance = 100*(7*5)/(2*6) ;//WHY ??
         System.out.println("variance = " + variance);
         double res = Tchebychev.inequality(variance,50);
