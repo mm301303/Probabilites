@@ -63,9 +63,18 @@ public class FailedDS3Test {
         assertEquals(0.950213, res, 0.05 );
     }
     @Test
+    //TODO need explanation
     public void ex4() {
         System.out.println("ENONCE :\n" +
-                ""+"\n"+"\n"+"\n"+"\n"+"\n");
+                "La duree de vie d'une ampoule LeD suit une loi exponentielle de moyenne 9000 h\n"+
+                "On enleve les durees de vie inferieurs a 2000 de la production\n"+
+                "Vous achetez une ampoule\n"+
+                "Quelle est la proba d'avoir une ampoule dont la durée de vie dépasse 13000 ?\n");
+        ExponentialLaw exponentialLaw = new ExponentialLaw(9000);
+        double partToRemove = exponentialLaw.F(2000);
+        System.out.println("partToRemove car inferieur a 2000= " + partToRemove);
+        double proba_sup_a_13000 =  1-(exponentialLaw.F(13000)-exponentialLaw.F(2000));
+        res = proba_sup_a_13000;
         assertEquals(0.2946, res, Calculation.DELTA );
     }
     @Test
