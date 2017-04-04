@@ -6,8 +6,10 @@ package Properties;
  */
 public class CentralLimitTheorem {
     //pour n grand
-        public static double getZn(double Sn, double n, double esperance_de_Sn, double ecart_type){
-        double res = (Sn- (n*esperance_de_Sn))/(ecart_type*Math.sqrt(n));
+
+    public static double getZn(double Sn, double n, double esperance_de_Sn, double ecart_type){
+        double res = (Sn - (n*esperance_de_Sn) ) / ( ecart_type*Math.sqrt(n) );
         return res;
     }
+
 }
