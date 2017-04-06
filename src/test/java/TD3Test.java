@@ -240,9 +240,39 @@ public class TD3Test {
         reponses+="X>="+X_+"\n";
 
         assertFalse(true);//not finished
+        //TODO refaire loi exponentielle
+    }
 
+    @Test
+    public void ex11() throws CalculationException {
+
+        consignes += "\nExercice 11\n" +
+                "Arrondis Soit X une variable aléatoire de loi exponentielle de paramètre lamdba . Soit Y = ⌈ X ⌉ , \n" +
+                " l’arrondi par valeur supérieure de X .\n Quelle loi suit Y ?";
+
+
+        reponses+=" * P(Y=n)=P(n-1<X<=n)=e^⁽-lambda(n-1)) - e^⁽-lambda)\n" +
+                " *\t(1-p)^(n-1) * p avec p=1-e^(lambda)";
+
+        assertFalse(true);//not finished
+        //TODO refaire loi exponentielle
     }
 
 
+    @Test
+    public void ex12() throws CalculationException {
+
+        consignes += "\nExercice 12\n" +
+                "Soit X une variable aléatoire de moyenne E et d’écart-type s\n." +
+                "\nQuelle est la taille du plus grand intervalle ? I = [E-lambda, E-lambda], centré autour de la moyenne tel qu’il est possible d’avoir\n" +
+                "P(X appartenant à I) = 0\n";
+
+
+
+        reponses+=" *P(E-lambda <= X <= E+lamda) =0 possible pour lambda < s\n" +
+                "P(|X-E|>=lambda)<=V/lambda^2";
+
+        assertFalse(true);//not finished
+    }
 
 }
