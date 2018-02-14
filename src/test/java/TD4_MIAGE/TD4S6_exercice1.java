@@ -27,4 +27,6 @@ public class TD4S6_exercice1 implements Displayable{
         BernouilliLaw bernouilliLaw = new BernouilliLaw(0.25);
         System.out.println("E=1/(supp-inf)="+bernouilliLaw.getProbabiliteDeX(5)+closure);
     }
+
+
 }

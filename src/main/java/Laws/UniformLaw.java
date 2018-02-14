@@ -12,8 +12,8 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
 
 
     public UniformLaw(double inf, double supp) {
-        this.inf = inf;
-        this.supp = supp;
+        this.inf = (inf<=supp)?inf:supp;
+        this.supp = (inf>=supp)?inf:supp;
         display();
 
     }
@@ -27,7 +27,7 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     }
     @Override
     public double f(double a) {
-        return 1/(supp-inf);
+        return supp-a/(supp-inf);
     }
 
     public double F(double x_inferieur_a_y) {
