@@ -1,3 +1,5 @@
+package old;
+
 import Laws.PoissonLaw;
 import Laws.functions.Law;
 import org.junit.Before;

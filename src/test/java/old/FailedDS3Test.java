@@ -1,3 +1,5 @@
+package old;
+
 import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.*;

@@ -1,3 +1,5 @@
+package old;
+
 import Laws.UniformLaw;
 import org.junit.Test;
 import tools.Calculation;
