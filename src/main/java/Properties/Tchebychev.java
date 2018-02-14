@@ -3,7 +3,7 @@ package Properties;
 /**
  * Created by max on 28/03/17.
  */
-public class Tchebychev {
+public abstract class Tchebychev {
     /**
      * approxime a plus ou moins t autour de la moyenne
      * généralement de manière peu précise
