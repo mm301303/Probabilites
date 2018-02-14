@@ -10,7 +10,4 @@ public interface Displayable {
     public static String body_prefix = " [\t* [ ";
     public static String closure = " ]] ";
 
-
-    String getName();
-    String display();
 }

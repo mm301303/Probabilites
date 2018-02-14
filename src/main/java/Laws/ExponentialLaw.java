@@ -21,7 +21,6 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
         return "Exponential Law";
     }
 
-    @Override
     public String display() {
         return getName()+" ; "+getParameters();
     }

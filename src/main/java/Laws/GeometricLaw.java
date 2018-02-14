@@ -36,7 +36,6 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
         return this.getClass().getSimpleName();
     }
 
-    @Override
     public String display() {
         return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }

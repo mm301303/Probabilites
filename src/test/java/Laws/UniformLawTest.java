@@ -1,4 +1,4 @@
-package old;
+package Laws;
 
 import Laws.UniformLaw;
 import org.junit.Test;

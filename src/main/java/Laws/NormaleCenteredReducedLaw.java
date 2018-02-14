@@ -24,7 +24,6 @@ public class NormaleCenteredReducedLaw implements Law, Displayable, ContinuousLa
         return "NormaleCentreeReduite";
     }
 
-    @Override
     public String display() {
         return getName() + "\n" + getParameters();
     }

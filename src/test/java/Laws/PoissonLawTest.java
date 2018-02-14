@@ -1,4 +1,4 @@
-package old;
+package Laws;
 
 import Laws.PoissonLaw;
 import Laws.functions.Law;

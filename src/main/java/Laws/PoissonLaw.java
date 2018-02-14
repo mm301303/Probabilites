@@ -46,7 +46,6 @@ public class PoissonLaw implements Law, Displayable {
         return "Poisson Laws.functions.Law";
     }
 
-    @Override
     public String display() {
         return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }

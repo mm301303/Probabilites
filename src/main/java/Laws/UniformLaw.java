@@ -8,12 +8,13 @@ import tools.Displayable;
 public class UniformLaw implements Law, ContinuousLaw, Displayable {
     private double supp;
     private double inf;
-
     private static final int MAX_EVAL=10;
+
 
     public UniformLaw(double inf, double supp) {
         this.inf = inf;
         this.supp = supp;
+        display();
 
     }
 
@@ -55,16 +56,13 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
         return num/base;
     }
 
-    @Override
     public String getName() {
 
-        return "Uniform Laws.functions.Law ";
+        return "Uniform Law : X suit une loi uniforme sur {inf, . . . , supp} si : \n"+
+                "∀k ∈ {inf, . . . , supp}, P(X = k ) = 1/(supp-inf)\n";
     }
 
-    @Override
     public String display() {
-
-        display();//for debug
         return Displayable.title_prefix+getName()+Displayable.closure+"\n"+getParameters();
     }
 
