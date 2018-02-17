@@ -15,6 +15,8 @@ public class TD4S6_exercice4 {
 
     @Test
     public void beaujolais() throws LawException {
+        System.out.println(title_prefix + this.getClass().getSimpleName());
+
         /*Un amateur éclairé, mais excessif, se déplace de réverbère en réverbère. Quand il se lance
         pour attraper le suivant, il a 80% de chances de ne pas tomber. Pour gagner le bistrot
         convoité, il faut en franchir 7. On notera X le nombre de réverbères atteints sans chute.
@@ -41,6 +43,8 @@ public class TD4S6_exercice4 {
 
         assertEquals(4., esp, 0.0001);
         assertEquals(12., var, 0.0001);
+
+        System.out.println(closure);
 
     }
 }
