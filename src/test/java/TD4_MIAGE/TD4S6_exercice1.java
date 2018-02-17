@@ -3,7 +3,9 @@ package TD4_MIAGE;
 import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.BernouilliLaw;
+import Laws.BinomialeLaw;
 import Laws.UniformLaw;
+import tools.Calculation;
 import tools.Displayable;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,8 +27,37 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println(title_prefix + this.getClass().getSimpleName());
         System.out.println("Soit E = P(X=5)");
         BernouilliLaw bernouilliLaw = new BernouilliLaw(0.25);
-        System.out.println("E=1/(supp-inf)="+bernouilliLaw.getProbabiliteDeX(5)+closure);
+
+        System.out.println("Loi de bernouilli : [0; 1] => 5 ne peut jamais être atteint !");
+        System.out.println("E[X]="+bernouilliLaw.getEsperance()+closure);
+        System.out.println("V[X]="+bernouilliLaw.getVariance()+closure);
+
+        assertEquals(3./16., bernouilliLaw.getVariance(), 0.0001);
+        //explications
+        /**
+         * On est en présence d’une loi de Bernouilli ici : X ne peut donc prendre pour valeurs que
+         0 ou 1, donc 5 ne peut jamais être atteint. De plus, son paramètre vaut p = 1/4.
+         */
+        assertEquals(0., bernouilliLaw.getProbabiliteDeX(5), 0.01);
+
     }
 
+    @Test
+    public void exercice1_c() throws LawException, CalculationException {
+        System.out.println(title_prefix + this.getClass().getSimpleName());
+        System.out.println("Soit E = P(X=5)");
+        System.out.println("X suit une loi binomiale b de paramètre B(8, 1./3.");
+        BinomialeLaw b = new BinomialeLaw( 1./3., 8);
+        double probaE = b.getProbabiliteDeX(5);
+        double espB = b.getEsperance();
+        double varB = b.getVariance();
+        //correction
+        assertEquals(Calculation.kParmisN(5, 8)*(Math.pow(2,3)/Math.pow(3,8)),probaE, 0.0001);
+        assertEquals(8./3.,espB, 0.0001);
+        assertEquals(16./9.,varB, 0.0001);
 
+        System.out.println("probaE = " + probaE);
+        System.out.println("espB = " + espB);
+        System.out.println("varB = " + varB);
+    }
 }
