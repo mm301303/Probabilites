@@ -21,7 +21,7 @@ public class BinomialeLaw implements Law, Displayable, DiscreteLaw {
 
 
     public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
-        Law.printcalcul("P(X="+x_egal_i+")", "KparmiN("+x_egal_i+","+n+")*("+p+"^"+n+")*((1-"+p+")^("+n+"-"+x_egal_i+")="+( Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i)) );
+        Law.printcalcul("P(X="+x_egal_i+")", "KparmiN("+x_egal_i+","+n+")*("+p+"^"+n+")*((1-"+p+")^("+n+"-"+x_egal_i+"))="+( Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i)) );
         return Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i);
     }
 
