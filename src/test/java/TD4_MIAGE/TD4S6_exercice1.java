@@ -4,6 +4,7 @@ import Exceptions.CalculationException;
 import Exceptions.LawException;
 import Laws.BernouilliLaw;
 import Laws.BinomialeLaw;
+import Laws.GeometricLaw;
 import Laws.UniformLaw;
 import tools.Calculation;
 import tools.Displayable;
@@ -46,7 +47,7 @@ public class TD4S6_exercice1 implements Displayable{
     public void exercice1_c() throws LawException, CalculationException {
         System.out.println(title_prefix + this.getClass().getSimpleName());
         System.out.println("Soit E = P(X=5)");
-        System.out.println("X suit une loi binomiale b de paramètre B(8, 1./3.");
+        System.out.println("X suit une loi binomiale B(8, 1./3.)");
         BinomialeLaw b = new BinomialeLaw( 1./3., 8);
         double probaE = b.getProbabiliteDeX(5);
         double espB = b.getEsperance();
@@ -59,5 +60,29 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println("probaE = " + probaE);
         System.out.println("espB = " + espB);
         System.out.println("varB = " + varB);
+    }
+
+
+    @Test
+    public void exercice1_d() throws LawException, CalculationException {
+        System.out.println(title_prefix + this.getClass().getSimpleName());
+        System.out.println("Soit E = P(X=5)");
+        System.out.println("X suit une loi géométrique g de paramètre 1./5.");
+
+        GeometricLaw g = new GeometricLaw(1./5.);
+
+        double probaE = g.getProbabiliteDeX(5);
+        double espG = g.getEsperance();
+        double varG = g.getVariance();
+
+        assertEquals(256./Math.pow(5, 5),probaE, 0.0001);
+        assertEquals(1./(1./5.),espG, 0.0001);
+        assertEquals((1. - 1./5.)/Math.pow(1./5.,2),varG, 0.0001);
+
+
+        System.out.println("probaE = " + probaE);
+        System.out.println("espG = " + espG);
+        System.out.println("varG = " + varG);
+
     }
 }

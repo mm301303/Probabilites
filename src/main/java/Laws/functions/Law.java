@@ -10,4 +10,8 @@ public interface Law {
      String getParameters();
      double getEsperance();
      double getVariance();
+
+     static void printcalcul(String intitule, String op){
+          System.out.println("Détail du calcul : \n "+intitule+" => "+op);
+     }
 }
