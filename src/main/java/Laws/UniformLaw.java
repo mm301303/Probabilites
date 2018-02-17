@@ -25,9 +25,10 @@ public class UniformLaw implements Law, ContinuousLaw, Displayable {
     public double F(double a, double b) {
         return F(b) - F(a);
     }
+
     @Override
     public double f(double a) {
-        return supp-a/(supp-inf);
+        return 1./(supp-inf+1);//si supp = 16 et inf 1, on a pas 15 valeurs entières mais 16
     }
 
     public double F(double x_inferieur_a_y) {

@@ -17,7 +17,7 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println("Soit E = P(X=5)");
         UniformLaw uniformLaw = new UniformLaw(1, 16);
         System.out.println("E=1/(supp-inf)="+uniformLaw.f(5)+closure);
-        assertEquals(1./(16.-1.), uniformLaw.f(5), 0.00001);
+        assertEquals(1./(16.), uniformLaw.f(5), 0.00001);
     }
 
     @Test
