@@ -24,6 +24,7 @@ public class BernouilliLaw implements Law, Displayable, DiscreteLaw {
      * @throws CalculationException
      */
     public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
+        Law.printcalcul("P(X="+x_egal_i+")", "(x_egal_i==0||x_egal_i==1)?((x_egal_i==1)?probSucces:1-probSucces):0." );
         return (x_egal_i==0||x_egal_i==1)?
                 //1 ou 0 ? :
                 ((x_egal_i==1)?probSucces:1-probSucces)
@@ -33,11 +34,13 @@ public class BernouilliLaw implements Law, Displayable, DiscreteLaw {
 
     @Override
     public double getEsperance() {
+        Law.printcalcul("E[X]", "probabilité de succés = " + probSucces);
         return probSucces;
     }
 
     @Override
     public double getVariance() {
+        Law.printcalcul("V[X]", "probSucces*(1-probSucces)="+probSucces+"*(1-"+probSucces+")");
         return probSucces*(1-probSucces);
     }
 
@@ -56,6 +59,6 @@ public class BernouilliLaw implements Law, Displayable, DiscreteLaw {
 
     @Override
     public String getParameters() {
-        return "";
+        return "probabilité de succés : "+probSucces;
     }
 }
