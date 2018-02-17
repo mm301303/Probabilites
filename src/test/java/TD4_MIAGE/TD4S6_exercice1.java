@@ -40,9 +40,9 @@ public class TD4S6_exercice1 implements Displayable{
          0 ou 1, donc 5 ne peut jamais être atteint. De plus, son paramètre vaut p = 1/4.
          */
         assertEquals(0., bernouilliLaw.getProbabiliteDeX(5), 0.01);
+        System.out.println(closure);
 
     }
-
     @Test
     public void exercice1_c() throws LawException, CalculationException {
         System.out.println(title_prefix + this.getClass().getSimpleName());
@@ -60,6 +60,8 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println("probaE = " + probaE);
         System.out.println("espB = " + espB);
         System.out.println("varB = " + varB);
+        System.out.println(closure);
+
     }
 
 
@@ -83,6 +85,7 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println("probaE = " + probaE);
         System.out.println("espG = " + espG);
         System.out.println("varG = " + varG);
+        System.out.println(closure);
 
     }
 }
