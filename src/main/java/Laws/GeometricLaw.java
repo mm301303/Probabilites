@@ -23,11 +23,13 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
     }
 
     public double getEsperance(){
+        Law.printcalcul("E[X]", "1/proba_reussite = 1/"+proba_reussite+"="+ (1/proba_reussite));
         return 1/proba_reussite;
     }
 
     @Override
     public double getVariance() {
+        Law.printcalcul("V[X]", "(1-proba_reussite)/(proba_reussite^2) = (1-"+proba_reussite+")/("+proba_reussite+"*"+proba_reussite+")");
         return (1-proba_reussite)/(proba_reussite*proba_reussite);
     }
 
@@ -47,6 +49,7 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
 
     @Override
     public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
+        Law.printcalcul("P(X)", "((1.-proba_reussite)^(x_egal_i-1.))*proba_reussite=((1.-"+proba_reussite+")^("+x_egal_i+"-1.))*"+proba_reussite+"="+Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite);
         return Math.pow(1.-proba_reussite, x_egal_i-1.)*proba_reussite;
     }
 }
