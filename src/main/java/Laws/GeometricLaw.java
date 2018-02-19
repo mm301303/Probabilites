@@ -24,7 +24,7 @@ public class GeometricLaw implements Law, Displayable, DiscreteLaw {
 
     public double getEsperance(){
         Law.printcalcul("E[X]", "1/proba_reussite = 1/"+proba_reussite+"="+ (1/proba_reussite));
-        return 1/proba_reussite;
+        return 1./proba_reussite;
     }
 
     @Override
