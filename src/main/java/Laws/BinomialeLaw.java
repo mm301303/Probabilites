@@ -43,7 +43,7 @@ public class BinomialeLaw implements Law, Displayable, DiscreteLaw {
     }
 
     public String display() {
-        return Displayable.title_prefix+getName()+ Displayable.closure+"\n"+getParameters();
+        return this.getName()+": "+getParameters();
     }
 
     @Override
