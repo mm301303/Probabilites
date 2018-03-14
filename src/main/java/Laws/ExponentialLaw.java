@@ -33,6 +33,7 @@ public class ExponentialLaw implements Law, ContinuousLaw, Displayable {
 
     @Override
     public double getEsperance() {
+        System.out.println("Esperance = 1./lambda =" + (1./lambda));
         return 1./lambda;
     }
 
