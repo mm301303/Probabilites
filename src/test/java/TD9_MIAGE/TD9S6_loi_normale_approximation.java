@@ -64,26 +64,29 @@ public class TD9S6_loi_normale_approximation implements Displayable {
         System.out.println("d'où ");
         double lambda = poissonLaw.getEsperance();
         NormaleLaw approximationDePoissonParNormaleLaw = new NormaleLaw(lambda, lambda);
-        double p_x_lt_27N = approximationParNormaleLaw.F(27.+0.5);
-        double p_x_lt_23N = approximationParNormaleLaw.F(23.-0.5);
-        double P_x_dans_23_27 = p_x_lt_27N - p_x_lt_23N ;
-        Law.printcalcul("P_x_dans_23_27 = p_x_lt_27N - p_x_lt_23N", P_x_dans_23_27+" \n```");
+        System.out.println("```");
 
         System.out.println("* k)"+ (lambda>20));
 
         System.out.println("* l)");
 
-        double P_y_eq_25 =  approximationDePoissonParNormaleLaw.F(27.+0.5)-approximationDePoissonParNormaleLaw.F(27-0.5);
-        Law.printcalcul("y_eq_25 = F(27.+0.5)-F(27-0.5) ","" + P_y_eq_25);
+        double p_x_lt_27N = approximationParNormaleLaw.F(27.+0.5);
+        double p_x_lt_23N = approximationParNormaleLaw.F(23.-0.5);
+        double P_x_dans_23_27 = p_x_lt_27N - p_x_lt_23N ;
+        Law.printcalcul("P_x_dans_23_27 = p_x_lt_27N - p_x_lt_23N", P_x_dans_23_27+" \n");
 
 
+        System.out.println("* m)");
+
+        double approxPyeq25 = approximationDePoissonParNormaleLaw.F(25+0.5) - approximationDePoissonParNormaleLaw.F(25-0.5);
+        System.out.println("approxPyeq25 = F(25+0.5) - F(25-0.5) =" + approxPyeq25);
         System.out.println(closure);
 
-    }
-    @Test
-    public void exercice2() {
+        System.out.println("* n)");
 
-
+        double Py_dans_23_27 = poissonLaw.getProbabiliteDeX(24.)+poissonLaw.getProbabiliteDeX(25.)+poissonLaw.getProbabiliteDeX(26.);
+        System.out.println("Py_dans_23_27 = " + Py_dans_23_27);
+        //TODO add correc
     }
 
 
