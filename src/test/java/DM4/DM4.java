@@ -85,7 +85,7 @@ public class DM4 implements Displayable{
         System.out.println(title_prefix+this.getClass().getSimpleName()+"b)");
         //Quelle est la loi de probabilité de Z ? et quelle loi usuelle suit-elle ?
         System.out.println("1) \n C'est une loi binomiale, il a a chaque fois 1/5 chance de faire un bon tir selon l'énoncé précédant");
-        BinomialeLaw b = new BinomialeLaw(1./5, 5);
+        BinomialeLaw b = new BinomialeLaw( 5, 1./5);
 
         //Quelle est la probabilité qu’il ait fait au moins un mauvais tir, sachant qu’il a fait au
         //moins 3 bons tirs ? (4 points)

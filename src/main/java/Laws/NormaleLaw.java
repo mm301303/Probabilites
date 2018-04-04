@@ -60,8 +60,9 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
     }
 
     public double F(double a, double b){
-
-        return super.F((b-esperance)/sqrt(variance)) - super.F(a-esperance)/sqrt(variance);
+        double res = super.F((b-esperance)/sqrt(variance)) - super.F(a-esperance)/sqrt(variance);
+        Law.printcalcul("F((b-esperance)/sqrt(variance)) - F(a-esperance)/sqrt(variance)", res+"");
+        return res;
     }
     
 
@@ -73,6 +74,8 @@ public class NormaleLaw extends NormaleCenteredReducedLaw implements Law, Displa
     @Override
     public double F(double b){
         double terme_ncr = (b-esperance)/sqrt(variance); //juste normalement
-        return super.F(terme_ncr);
+        double res = super.F(terme_ncr);
+        Law.printcalcul("F("+b+")", ""+res);
+        return res;
     }
 }

@@ -15,18 +15,19 @@ public class PoissonLaw implements Law, Displayable {
         this.lambda = lambda;
     }
 
-    public double getProbabiliteDeX(double x_egal_i){
+    public double getProbabiliteDeX(double k){
         double coef = Math.exp(-lambda);
-        int denom = 0;
+        double denom = 0.;
         try {
-            denom = (int)Calculation.factorielle((int)x_egal_i);
+            denom = Calculation.factorielle((int)k);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
             System.out.printf("exiting -");
             System.exit(-1);
         }
-        double numerateur = Math.pow(lambda, x_egal_i);
+        double numerateur = Math.pow(lambda, k);
         double proba = coef*numerateur/denom;
+        Law.printcalcul("P(X="+k+"=Math.exp(-lambda)*Math.pow(lambda, k)/Calculation.factorielle((int)k)", ""+proba );
         return proba;
     }
 

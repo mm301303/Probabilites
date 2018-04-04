@@ -30,7 +30,7 @@ public class TD4S6_exercice3 {
     public void parametres() throws LawException {
         System.out.println(title_prefix + this.getClass().getSimpleName());
         System.out.println("b)");
-        BinomialeLaw b = new BinomialeLaw(0.1, N);
+        BinomialeLaw b = new BinomialeLaw( N, 0.1);
         double esp = b.getEsperance();
         double var = b.getVariance();
 
@@ -43,7 +43,7 @@ public class TD4S6_exercice3 {
     public void auMoinsDeuxDeffectueux() throws LawException, CalculationException {
         System.out.println(title_prefix + this.getClass().getSimpleName());
         System.out.println("c)");
-        BinomialeLaw b = new BinomialeLaw(0.1, N);
+        BinomialeLaw b = new BinomialeLaw(N, 0.1);
 
         //soit E=P(X>=2), soit A=P(X<=1)
 

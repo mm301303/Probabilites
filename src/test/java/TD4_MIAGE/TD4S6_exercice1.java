@@ -48,7 +48,7 @@ public class TD4S6_exercice1 implements Displayable{
         System.out.println(title_prefix + this.getClass().getSimpleName());
         System.out.println("Soit E = P(X=5)");
         System.out.println("X suit une loi binomiale B(8, 1./3.)");
-        BinomialeLaw b = new BinomialeLaw( 1./3., 8);
+        BinomialeLaw b = new BinomialeLaw(  8, 1./3.);
         double probaE = b.getProbabiliteDeX(5);
         double espB = b.getEsperance();
         double varB = b.getVariance();

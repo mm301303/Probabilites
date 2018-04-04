@@ -13,16 +13,16 @@ import tools.Displayable;
 public class BinomialeLaw implements Law, Displayable, DiscreteLaw {
     private double p;
     private int n;
-    public BinomialeLaw(double p,int n) throws LawException {
+    public BinomialeLaw(int n, double p) throws LawException {
         this.p = p;
         this.n = n;
         if(!(p>0 && p<1 && n>0)) throw new LawException("Invalid parameters p="+p+" n="+n);
     }
 
 
-    public double getProbabiliteDeX(int x_egal_i) throws CalculationException {
-        Law.printcalcul("P(X="+x_egal_i+")", "KparmiN("+x_egal_i+","+n+")*("+p+"^"+n+")*((1-"+p+")^("+n+"-"+x_egal_i+"))="+( Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i)) );
-        return Calculation.kParmisN(x_egal_i, n) * Math.pow(p,x_egal_i) * Math.pow((1.- p) , n-x_egal_i);
+    public double getProbabiliteDeX(int k) throws CalculationException {
+        Law.printcalcul("P(X="+k+")", "k("+k+","+n+")*("+p+"^"+n+")*((1-"+p+")^("+n+"-"+k+"))="+( Calculation.kParmisN(k, n) * Math.pow(p,k) * Math.pow((1.- p) , n-k)) );
+        return Calculation.kParmisN(k, n) * Math.pow(p,k) * Math.pow((1.- p) , n-k);
     }
 
     @Override

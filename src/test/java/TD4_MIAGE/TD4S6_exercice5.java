@@ -37,7 +37,7 @@ public class TD4S6_exercice5 {
         //l'expérience consiste a comparer 2 par 2 les 500 plateaux de la cantines. Chaque plateau peut etre d'une des 250 sortes possibles
         //Soit B la loi Binomiale de parametres 1/250 500 qui modélise cette expérience
 
-        BinomialeLaw bl = new BinomialeLaw(1./250., 500);
+        BinomialeLaw bl = new BinomialeLaw( 500, 1./250.);
 
         /*  Correction
             Dans cette situation, on répète 500 fois l’expérience consistant à regarder si la personne
